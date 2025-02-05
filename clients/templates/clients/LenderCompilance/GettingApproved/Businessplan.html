@@ -1,0 +1,142 @@
+{% extends "clients/base.html" %}
+{% load static %}
+{% block title %}business Plan{% endblock title %}
+{% block content %}
+
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Have You Taken The Time To Plan Your Business?</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">Many lenders will require an SBA compliant business plan</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/businessplan.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+  <p class="text-gray-800 text-base mb-4">They want to see a plan that clearly shows your business is viable, why it will succeed, and that you have done your demographic analysis and planning.</p>
+  <p class="text-gray-800 text-base mb-4">Business plans are a test of whether you know what it will take for your business to succeed over both the short and long term. More importantly, they need to be regarded as "living" documents that even seasoned and profitable businesses should update and keep current.</p>
+  <p class="text-gray-800 text-base mb-4">You might know everything about your product or service, but there are many cases where you are going to need others to know as well. This is especially true when it comes to dealing with Banks, SBA lenders, and Investors. In these cases, they will all require a solid business plan that clearly shows the viability of your business model and that showcases your understanding of what it will take for it to succeed.</p>
+  <h2 class="text-xl font-semibold text-black mb-4">Compliance Item - Business Plan (For SBA & Bank Term Loans)</h2>
+
+   
+    <div class="border border-blue-300 rounded mb-4">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Compliance Item Fix - SBA Compliant Business Plan
+      </h2>
+      
+      <div class="p-4 bg-white">
+        <p class="text-sm text-black mb-2">
+            A solid business plan will require that you gather information which is pertinent to the development and growth of your business, such as: market size, target demographics, industry data, and comps. It will also help you form the right questions like: What will it take for market penetration? Is your business on the correct side of the street? Should I hire employees or rely more on outsourcing? Click here for a service that offers a do it yourself step-by-step system creating your SBA Compliant business plan.
+        </p>
+        <p class="text-sm text-black mb-2">
+            Yes, the thought of putting together a comprehensive business plan can be overwhelming. Fortunately, there are services that take your business ideas and thoughts and put them into a tangible format that banking institutions and lenders require. Even better, there is a solution provider who will offer credit terms for their services and report your payment to the business credit agencies.
+        </p>
+
+        <h3 class="text-md font-bold ">An SBA compliant business plan is needed for SBA or conventional bank financing for your business.</h3>
+        <div class="p-8 bg-white text-center">
+          <div class="grid grid-cols-2 gap-4 items-center">
+            <!-- Liveplan -->
+            <img src="{% static 'img/liveplan.png' %}" alt="Liveplan" class="w-40 mx-auto">
+            <a
+              href="https://www.liveplan.com/"
+              class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+              target="_blank"
+            >
+              Go To Liveplan.com
+            </a>
+        
+            <!-- wise business plans -->
+            <img src="{% static 'img/wiseplans.png' %}" alt="Wiseplans" class="w-40 mx-auto">
+            <a
+              href="https://wisebusinessplans.com/partner/lovelybutterflies/?refn=lovelybutterflies"
+              class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+              target="_blank"
+            >
+              Go To Wisebusinessplans.com
+            </a>
+        
+            <!-- palo altp -->
+            <img src="{% static 'img/PaloAlto.png' %}" alt="Paloalto" class="w-40 mx-auto">
+            <a
+              href="https://www.paloalto.com/"
+              class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+              target="_blank"
+            >
+              Go To PaloAlto.com
+            </a>
+        
+            <!-- Business tools -->
+            <img src="{% static 'img/businesstools.png' %}" alt="BusinessTools" class="w-40 mx-auto">
+            <a
+              href="https://www.businesspowertools.com/?nab=1"
+              class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+              target="_blank"
+            >
+              Go To Businesspoertools.com
+            </a>
+          </div>
+        
+          <!-- Footer Note -->
+          <p class="mt-6 text-sm text-gray-500">
+            The system provider may receive compensation for referrals to third party service companies.
+          </p>
+        </div>
+      </div>
+    </div>
+   <!-- Action Items Section -->
+   
+    <h2 class="text-xl font-semibold text-black mb-4">The following are key aspects that every business plan should include:</h2>
+    <ol class="list-decimal list-inside  text-gray-800 text-base pl-10">
+      <li>The Executive Summary - a 30 second pitch that clearly summarizes your business.
+        </li>
+      <li>Market Analysis - How big, the role you intend to play, and why.</li>
+      <li>
+        Company Description - An overview of what the business will do and why it is viable.
+      </li>
+      <li>
+        Organization & Management - Do you have the experience and expertise it will take to succeed.
+      </li>
+      <li>Marketing & Sales - Where is this critical component coming from, in-house or out-sourced.</li>
+      <li>Service or Product Line - What exactly are you going to make, sell, or do.</li>
+      <li>Capitalization Requirements - How much money do you need and where will it come from.</li>
+      <li>Financials - At least 24 months of looking forward numbers that can be industry and market supported.</li>
+    </ol>
+  
+  <!-- Form Section -->
+  <form method="POST" action="{% url 'businessplan' business.pk %}">
+    {% csrf_token %}
+    <div class="p-6 bg-white ">
+
+      <!-- Business Plan  Ready -->
+      <div class="flex items-center mb-4">
+        <span class="text-sm font-medium text-gray-700 w-1/3">Does your business have a current business plan that can be presented to lenders?</span>
+        <div class="flex space-x-4 w-2/3">
+          <label class="flex items-center">
+            <input type="radio" name="business_plan" value="Yes" class="mr-2" {% if business.trademark_verified %}checked{% endif %}>
+            Yes
+          </label>
+          <label class="flex items-center">
+            <input type="radio" name="business_plan" value="No" class="mr-2" {% if not business.trademark_verified %}checked{% endif %}>
+            No
+          </label>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      .<div class="flex justify-center space-x-4">
+        <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+    <a href="{% url 'clientindex' %}" 
+      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+      Dashboard
+    </a>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+      </div>
+    
+  </form>
+</div>
+
+
+
+{% endblock content %}
+

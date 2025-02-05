@@ -1,0 +1,77 @@
+{% extends "clients/base.html" %}
+{% load static %}
+{% block title %}Entity and Filings{% endblock title %}
+{% block content %}
+<div class="overflow-x-auto p-4">
+  <h2 class="text-xl font-bold mb-4 text-gray-800">Secretary of State Contact List</h2>
+  <table class="table-auto w-full border-collapse border border-gray-300">
+    <!-- Table Header -->
+    <thead class="bg-gray-300">
+      <tr>
+        <th class="border border-gray-400 px-4 py-2 text-left font-medium">State</th>
+        <th class="border border-gray-400 px-4 py-2 text-left font-medium">Address</th>
+        <th class="border border-gray-400 px-4 py-2 text-center font-medium">Phone</th>
+        <th class="border border-gray-400 px-4 py-2 text-center font-medium">Fax</th>
+      </tr>
+    </thead>
+
+    <!-- Table Body -->
+    <tbody class="space-y-6">
+      {% for item in sos_data %}
+      <!-- Alabama Row -->
+      <tr class="bg-blue-100">
+        <td class="px-4 py-2 text-left">
+          <div class="flex items-center">
+            <span class="font-bold text-gray-800">{{ item.state }}</span>
+          </div>
+        </td>
+        <td class="px-4 py-2 text-left text-gray-700">
+          {{ item.address }}
+        </td>
+        <td class="px-4 py-2 text-center text-gray-700">
+          {{ item.phone }}
+        </td>
+        <td class=" px-4 py-2 text-center text-gray-700">
+          {{ item.fax }}
+        </td>
+      </tr>
+      <tr class="bg-blue-100 mb-4">
+          <td class=" px-4 py-2 text-center text-gray-700">
+            <a
+              href="{{ item.website }}"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              >Website</a
+            >
+          </td>
+          <td class="px-4 py-2 text-center text-gray-700">  
+            <a
+              href="{{ item.filings }}"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              >Filings</a
+            >
+          </td>
+          <td class="px-4 py-2 text-center text-gray-700">
+            <a
+              href="{{ item.taxes }}"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              >Taxes</a
+            >
+          </td>
+          <td class="px-4 py-2 text-center text-gray-700">
+            <a
+              href="{{ item.entity_search }}"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              >Entity Search</a
+            >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+  {%endblock%}

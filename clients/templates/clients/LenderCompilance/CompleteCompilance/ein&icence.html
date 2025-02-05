@@ -1,0 +1,118 @@
+{% extends "clients/base.html" %}
+{% load static %}
+{% block title %}ein and licence{% endblock title %}
+{% block content %}
+
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Federal EIN & Business Licenses: City, County, State</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">You need an Employer ID Number (EIN) for your business credit identity</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/ein_headder.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+    <h2 class="text-xl font-semibold text-black mb-4">You also need the proper licensing from your City, County, or State.</h2>
+        <p class="text-gray-800 text-base mb-4">Whether you have employees or not, your business entity must have a Federal Tax ID number (EIN). Just like you have a Social Security Number, your business has an EIN. Your Tax ID number is used to open your bank account and to build your business credit profile. If you have an EIN, you may still need a new one if:</p>
+            <!-- Action Items Section -->
+    <div class="mb-8">
+        <ol class="list-decimal list-inside space-y-2 text-gray-800 text-base">
+          <li>Set up a business entity or make sure your business entity is set up correctly.</li>
+          <li>Verify that your business legal name is not going to create any trademark infringement.</li>
+          <li>
+            Make sure your entity is "In Good Standing" and Foreign File your entity if required.
+          </li>
+          <li>
+            Your entity should be filed using a USPS listed business address, not a residence or mail stop.
+          </li>
+        </ol>
+      </div>
+    
+    <p class="text-gray-800 text-base mb-4">Take the time to verify that all agencies, banks, and credit vendors have your business listed with the same Tax ID number.</p>
+    
+  
+    <h1 class="text-lg font-semibold text-black mb-4 mt-4">Compliance Item - Federal Employer Identification Number (EIN)</h1>
+    <div class="border border-blue-300 rounded">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Compliance Item Fix - IRS Employer Identification Number (EIN)
+      </h2>
+      <div class="p-4 bg-white">
+        <p class="text-sm text-black">
+            To build business credit your business must have a Federal Employer Identification Number (EIN). To obtain an EIN, or to determine if you need a new one, you can do it yourself online or the incorporating service you used will normally do the EIN filing for you.
+        </p>
+        
+        
+        <div class="flex justify-center mt-6">
+          <a href="https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number" class="bg-green-500 text-white font-medium py-2 px-6 rounded hover:bg-green-600">
+            Get Your Federal EIN Now
+          </a>
+        </div>
+      </div>
+    </div>
+    <h1 class="text-lg font-semibold text-black mb-4 mt-4">Compliance Item - The Required Business or Professional Licenses</h1>
+    <div class="border border-blue-300 rounded">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Compliance Item Fix - Make Sure That Your Business Has The Required Licenses
+      </h2>
+      <div class="p-4 bg-white">
+        <p class="text-sm text-black">
+            One of the most common mistakes when building credit for your company is non-matching business addresses on your business licenses. Even worse is not having the "required" licenses for your type of business to operate legally. You will need to contact the State, County, and City Government offices to see if there are any required licenses and permits to operate your type of business. You can contact them directly via phone or search their websites to confirm if there are any required licenses or permits for your type of business.
+        </p>
+        <p class="text-sm text-black mt-4">
+            Example: You start up a business and operate it out of your house. In this instance, some cities might require you to have a license, while other cities may not.
+        </p>
+      </div>
+    </div>
+<form method="POST" action="{% url 'ein' business.pk %}">
+    {% csrf_token %}
+<!-- Form Container -->
+    <div class="container px-6 mx-auto grid">
+        
+         <!-- EIN Verification -->
+         <div class="flex items-center mt-2">
+            <label class="text-sm font-semibold text-gray-700 w-3/4">You have verified that your EIN is filed and correct.</label>
+            <div class="w-4/5 flex space-x-2">
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="ein_verified" value="yes" class="mr-1 text-blue-600 focus:ring-blue-500" {% if business.ein_verified %}checked{% endif %}>
+                    Yes
+                </label>
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="ein_verified" value="no" class="mr-1 text-blue-600 focus:ring-blue-500" {% if not business.ein_verified %}checked{% endif %}>
+                    No
+                </label>
+            </div>
+        </div>
+
+        <!-- Licenses and Permits Verification -->
+        <div class="flex items-center mt-2">
+            <label class="text-sm font-semibold text-gray-700 w-3/4">You have obtained all required licenses and/or permits for your business:</label>
+            <div class="w-4/5 flex space-x-2">
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="licenses_obtained" value="yes" class="mr-1 text-blue-600 focus:ring-blue-500" {% if business.licence_obtained %}checked{% endif %}>
+                    Yes
+                </label>
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="licenses_obtained" value="no" class="mr-1 text-blue-600 focus:ring-blue-500" {% if not business.licence_obtained %}checked{% endif %}>
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Center-Aligned Buttons -->
+    <div class="flex justify-center space-x-4 mt-6">
+        <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+    <a href="{% url 'clientindex' %}" 
+      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+      Dashboard
+    </a>
+    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+    </div>
+</div>
+</form>
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,513 @@
+[
+    {
+        "state": "Alabama",
+        "address": "Alabama Secretary of State\n PO Box 5616 Montgomery, AL 36103-5616",
+        "phone": "(334) 242-5324",
+        "fax": "(334) 240-3138",
+        "website": "http://www.sos.state.al.us",
+        "filings": "https://www.sos.alabama.gov/business-entities/business-downloads",
+        "taxes": "http://revenue.alabama.gov/incometax/bus_priv_tx/ITbusprivindex.cfm",
+        "entity_search": "http://arc-sos.state.al.us/CGI/CORPNAME.MBR/INPUT"
+        },
+    {
+        "state": "Alaska",
+        "address": "State of Alaska - Division of Corporations PO Box 110806 Juneau, AK 99811-0806",
+        "phone": "(907) 465-2550",
+        "fax": "(907) 465-2974",
+        "website": "https://www.commerce.alaska.gov/web/",
+        "filings": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorpFormsFees.aspx",
+        "taxes": "http://www.tax.alaska.gov/programs/forms.aspx",
+        "entity_search": "https://www.commerce.alaska.gov/cbp/main/search/entities"
+        },
+    {
+        "state": "Arizona",
+        "address": "Arizona Corporation Commission 1300 West Washington Street Phoenix, AZ 85007-2929",
+        "phone": "(602) 542-3026",
+        "fax": "(602) 542-4100",
+        "website": "http://ecorp.azcc.gov/",
+        "filings": "http://www.azcc.gov/Divisions/Corporations/forms/formsindex.asp",
+        "taxes": "http://www.azdor.gov/Forms/Corporate.aspx",
+        "entity_search": "https://ecorp.azcc.gov/EntitySearch/Index"
+        },
+    {
+        "state": "Arkansas",
+        "phone": "(888) 233-0325",
+        "fax": "(501) 682-3437",
+        "website": "http://www.sos.arkansas.gov/Pages/default.aspx",
+        "filings": "https://www.sos.arkansas.gov/business-commercial-services-bcs/forms-fees",
+        "taxes": "http://www.dfa.arkansas.gov/offices/incomeTax/Pages/default.aspx",
+        "entity_search": "http://www.sos.arkansas.gov/corps/search_all.php"
+        },
+    {
+        "state": "California",
+        "address": "California Secretary of State 1500 11th Street Sacramento, CA 95814",
+        "phone": "(916) 657-5448",
+        "website": "http://www.sos.ca.gov/",
+        "filings": "http://www.sos.ca.gov/business/be/forms.htm",
+        "taxes": "https://bizfileonline.sos.ca.gov/search/ucc",
+        "entity_search": "https://bizfileonline.sos.ca.gov/search/business"
+        },
+    {
+        "state": "Colorado",
+        "phone": "(303) 894-2200",
+        "fax": "(303) 869-4864",
+        "website": "http://www.sos.state.co.us",
+        "filings": "http://www.sos.state.co.us/pubs/business/forms_main.html",
+        "taxes": "http://www.colorado.gov/revenue/tax",
+        "entity_search": "http://www.sos.state.co.us/biz/BusinessEntityCriteriaExt.do"
+        },
+    {
+        "state": "Connecticut",
+        "address": "Connecticut Secretary of State 165 Capitol Avenue Hartford, CT 06106",
+        "phone": "(860) 509-6003",
+        "fax": "(860) 509-6068",
+        "website": "https://portal.ct.gov/sots",
+        "filings": "https://portal.ct.gov/SOTS/Business-Services/Commercial-Recording/Commercial-Recording-Divisions-Forms-Index-Content",
+        "taxes": "http://www.ct.gov/drs/cwp/view.asp?a=1509&q=443198",
+       "entity_search": "https://service.ct.gov/business/s/onlinebusinesssearch?language=en_US"
+        },
+    {
+        "state": "Delaware",
+        "address": "Delaware Secretary of State PO Box 898 Dover, DE 19903",
+        "phone": "(302) 739-3073",
+        "fax": "(302) 739-3812",
+        "website": "http://www.corp.delaware.gov",
+        "filings": "http://corp.delaware.gov/corpforms.shtml",
+        "taxes": "http://revenue.delaware.gov/",
+        "entity_search": "https://icis.corp.delaware.gov/Ecorp/EntitySearch/NameSearch.aspx"
+        },
+    {
+        "state": "District of Columbia",
+        "address": "Department of Consumer & Regulatory Affairs 1100 4th Street SW Washington, DC 20024",
+        "phone": "(202) 442-4400",
+        "fax": "(202) 442-9445",
+        "website": "http://www.dcra.dc.gov",
+        "filings": "https://dcra.dc.gov/service/search-dcra-document-or-form",
+        "taxes": "http://otr.cfo.dc.gov/page/tax-forms-and-publications",
+        "entity_search": "https://corponline.dcra.dc.gov/Account.aspx/LogOn?ReturnUrl=%2f"
+        },
+    {
+        "state": "Florida",
+        "address": "Florida Department of State The Centre of Tallahassee 2415 N. Monroe Street Ste 810 Tallahassee, FL 32303",
+        "phone": "(850) 245-6000",
+        "fax": "(850) 245-6014",
+        "website": "http://www.dos.state.fl.us",
+        "filings": "http://www.sunbiz.org/downloads.html",
+        "taxes": "http://floridarevenue.com/taxes/Pages/default.aspx",
+        "entity_search": "http://search.sunbiz.org/Inquiry/CorporationSearch/ByName"
+        },
+    {
+        "state": "Georgia",
+        "phone": "(404) 656-2817",
+        "fax": "(404) 657-6380",
+        "website": "http://sos.ga.gov/",
+        "filings": "http://sos.ga.gov/cgi-bin/corpforms.asp",
+        "taxes": "https://dor.georgia.gov/documents/forms",
+        "entity_search": "https://ecorp.sos.ga.gov/BusinessSearch"
+        },
+    {
+        "state": "Hawaii",
+        "address": "Department of Commerce PO Box 40 Honolulu, HI 96810",
+        "phone": "(808) 586-2727",
+        "fax": "(808) 586-2733",
+            "website": "https://portal.ehawaii.gov/",
+            "filings": "http://cca.hawaii.gov/breg/registration/",
+            "taxes": "http://tax.hawaii.gov/forms/",
+            "entity_search": "http://hbe.ehawaii.gov/documents/search.html?mobile=N&site_preference=normal"
+        },
+    {
+        "state": "Idaho",
+        "address": "Office of the Secretary of State PO Box 83720 Boise, ID 83720-0080",
+        "phone": "(208) 334-2301",
+        "fax": "(208) 334-2080",
+    
+            "website": "http://www.sos.idaho.gov/",
+            "filings": "https://sos.idaho.gov/business-forms/",
+            "taxes": "http://business.idaho.gov/",
+            "entity_search": "https://sosbiz.idaho.gov/search/business"
+        },
+    {
+        "state": "Illinois",
+        "phone": "(217) 782-6961",
+        "fax": "(217) 785-0358",
+    
+            "website": "https://www.ilsos.gov/home.html",
+            "filings": "https://www.ilsos.gov/publications/business_services/home.html",
+            "taxes": "http://www.revenue.state.il.us/#&panel1-1",
+            "entity_search": "http://www.ilsos.gov/corporatellc/"
+        },
+    {
+        "state": "Indiana",
+        "address": "Indiana Secretary of State 302 West Washington Street, Room E018 Indianapolis, IN 46204",
+        "phone": "(317) 232-6576",
+        "fax": "(317) 233.3387",
+            "website": "http://www.in.gov/sos/business/index.htm",
+            "filings": "http://www.in.gov/sos/business/2426.htm",
+            "taxes": "http://www.in.gov/dor/3489.htm",
+            "entity_search": "https://bsd.sos.in.gov/publicbusinesssearch"
+        },
+    {
+        "state": "Iowa",
+        "phone": "(515) 281-5204",
+        "fax": "(515) 242-5953",
+      
+            "website": "https://sos.iowa.gov/",
+            "filings": "http://sos.iowa.gov/business/FormsAndFees.html",
+            "taxes": "http://www.iowa.gov/tax/forms/loadform.html",
+            "entity_search": "http://sos.iowa.gov/search/business/(S(5zrs4g2e021djh45y4ud01ve))/search.aspx"
+        },
+    {
+        "state": "Kansas",
+        "phone": "(785) 296-4564",
+        "fax": "(785) 296-4570",
+            "website": "http://www.sos.ks.gov/",
+            "filings": "https://sos.ks.gov/forms/forms_results.aspx?division=BS",
+            "taxes": "http://www.ksrevenue.org/forms.html",
+            "entity_search": "https://www.kansas.gov/bess/flow/main?execution=e2s1"
+        },
+    {
+        "state": "Kentucky",
+        "address": "Kentucky Secretary of State 700 Capital Avenue Ste 152 State Capitol Frankfort, KY 40601",
+        "phone": "(502) 564-3490",
+        "fax": "(502) 564-5687",
+    
+        
+            "website": "http://www.sos.ky.gov/Pages/default.aspx",
+            "filings": "https://www.sos.ky.gov/bus/Forms/Pages/default.aspx",
+            "taxes": "http://revenue.ky.gov/Get-Help/Pages/Forms.aspx",
+            "entity_search": "https://web.sos.ky.gov/ftsearch/"
+        },
+    {
+        "state": "Louisiana",
+        "address": "Louisiana Secretary of State PO Box 94125 Baton Rouge, LA 70804",
+        "phone": "(225) 925-4704",
+        "fax": "(225) 932-5314",
+            "website": "http://www.sos.la.gov/Pages/default.aspx",
+            "filings": "http://www.sos.la.gov/BusinessServices/FileBusinessDocuments/GetFormsAndFeeSchedule/Pages/default.aspx",
+            "taxes": "http://www.rev.state.la.us/sections/taxforms/default.aspx",
+            "entity_search": "https://coraweb.sos.la.gov/CommercialSearch/CommercialSearch.aspx"
+        },
+    {
+        "state": "Maine",
+        "phone": "(207) 624-7736",
+        "fax": "(207) 287-5428",
+   
+            "website": "http://www.state.me.us/sos/",
+            "filings": "http://www.maine.gov/sos/cec/corp/",
+            "taxes": "http://www.maine.gov/revenue/forms/homepage.html",
+            "entity_search": "http://www.informe.org/icrs/ICRS?MainPage=x"
+        },
+    {
+        "state": "Maryland",
+        "address": "Maryland Secretary of State 301 West Preston Street 8th Floor Room 801 Baltimore, MD 21201",
+        "phone": "(410) 767-1340",
+        "fax": "(410) 333-7097",
+            "website": "http://www.sos.state.md.us",
+            "filings": "https://dat.maryland.gov/Pages/sdatforms.aspx",
+            "taxes": "http://taxes.marylandtaxes.com/Business_Taxes/General_Information/Business_Tax_Forms_and_Instructions/",
+            "entity_search": "https://egov.maryland.gov/BusinessExpress/EntitySearch"
+        },
+    {
+        "state": "Massachusetts",
+        "phone": "(617) 727-9640",
+        "fax": "(617) 742-4538",
+            "website": "http://www.sec.state.ma.us/",
+            "filings": "http://www.sec.state.ma.us/cor/Functionality/walkinmail.htm",
+            "taxes": "http://www.mass.gov/dor/forms/online-forms-index.html",
+            "entity_search": "http://corp.sec.state.ma.us/CorpWeb/CorpSearch/CorpSearch.aspx"
+        },
+    {
+        "state": "Michigan",
+        "address": "Michigan Department of Economic Growth PO Box 30054 Lansing, MI 48909",
+        "phone": "(517) 241-6470",
+        "fax": "(517) 241-0538",
+    
+     
+            "website": "http://www.michigan.gov/lara/0,4601,7-154-35299_61343_35413---,00.html",
+            "filings": "http://www.michigan.gov/lara/0,4601,7-154-35299_61343_35413_36736---,00.html",
+            "taxes": "http://www.michigan.gov/taxes/0,4676,7-238-44143---,00.html",
+            "entity_search": "https://cofs.lara.state.mi.us/corpweb/CorpSearch/CorpSearch.aspx"
+        },
+    {
+        "state": "Minnesota",
+        "address": "First National Bank Building 332 Minnesota Street, Ste N201 Saint Paul, MN 55101",
+        "phone": "(651) 296-2803",
+        "fax": "(651) 297-7067",
+    
+            "website": "http://www.sos.state.mn.us",
+            "filings": "https://www.sos.state.mn.us/business-liens/business-forms-fees/",
+            "taxes": "http://www.revenue.state.mn.us/businesses/Pages/Forms-and-Instructions.aspx",
+            "entity_search": "http://mblsportal.sos.state.mn.us/"
+        },
+    {
+        "state": "Mississippi",
+        "address": "Mississippi Secretary of State 125 South Congress Street Jackson, MS 39201",
+        "phone": "(601) 359-1633",
+        "fax": "(601) 359-1607",
+   
+            "website": "http://www.sos.ms.gov/",
+            "filings": "https://corp.sos.ms.gov/corpconv/portal/c/page/corpNewFilings/portal.aspx",
+            "taxes": "http://www.dor.ms.gov/",
+            "entity_search": "https://corp.sos.ms.gov/corp/portal/c/page/corpBusinessIdSearch/portal.aspx?#clear=1"
+        },
+    {
+        "state": "Missouri",
+        "address": "Missouri Corporations Division PO Box 778 Jefferson City, MO 65102-0778",
+        "phone": "(573) 751-4153",
+        "fax": "(573) 751-5841",
+    
+            "website": "http://www.sos.mo.gov",
+            "filings": "http://www.sos.mo.gov/business/corporations/forms",
+            "taxes": "http://dor.mo.gov/forms/",
+            "entity_search": "https://bsd.sos.mo.gov/BusinessEntity/BESearch.aspx?SearchType=0"
+        },
+    {
+        "state": "Montana",
+        "address": "Montana Secretary of State PO Box 202801 Helena, MT 59620-2801",
+        "phone": "(406) 444-3665",
+        "fax": "(406) 444-3976",
+    
+            "website": "http://www.sos.mt.gov/",
+            "filings": "http://sos.mt.gov/Business/Forms/index.asp",
+            "taxes": "http://revenue.mt.gov/home/forms.aspx",
+            "entity_search": "http://sos.mt.gov/business"
+        },
+    {
+        "state": "Nebraska",
+        "address": "Nebraska Secretary of State 1201 N Street, Ste 120 Lincoln, NE 68508-2008",
+        "phone": "(402) 471-4079",
+        "fax": "(402) 471-3666",
+    
+            "website": "http://www.sos.ne.gov/dyindex.html",
+            "filings": "http://www.sos.state.ne.us/business/corp_serv/corp_form.html",
+            "taxes": "http://www.revenue.nebraska.gov/tax/current/current.html",
+            "entity_search": "https://www.nebraska.gov/sos/corp/corpsearch.cgi?nav=search"
+        },
+    {
+        "state": "Nevada",
+        "address": "Nevada Secretary of State 202 N. Carson Street Carson City, NV 89701",
+        "phone": "(775) 684-5708",
+        "fax": "(775) 684-5725",
+            "website": "http://www.nvsos.gov/",
+            "filings": "https://www.nvsos.gov/sos/businesses/commercial-recordings/forms-fees/all-business-forms",
+            "taxes": "http://tax.nv.gov/Forms/",
+            "entity_search": "https://esos.nv.gov/EntitySearch/OnlineEntitySearch"
+        },
+    {
+        "state": "New Hampshire",
+        "address": "New Hampshire Secretary of State 107 North Main Street Concord, NH 03301-4989",
+        "phone": "(603) 271-3246",
+        "fax": "(603) 271-3247",
+    
+            "website": "http://sos.nh.gov/",
+            "filings": "https://sos.nh.gov/corporation-ucc-securities/corporation/forms-and-fees/",
+            "taxes": "http://www.revenue.nh.gov/forms/",
+            "entity_search": "https://quickstart.sos.nh.gov/online/BusinessInquire"
+        },
+    {
+        "state": "New Jersey",
+        "address": "New Jersey Division of Revenue PO Box 308 Trenton, NJ 08625",
+        "phone": "(609) 292-9292",
+        "fax": "(609) 984-6851",
+            "website": "http://www.nj.gov/treasury/revenue/",
+            "filings": "https://business.nj.gov/",
+            "taxes": "https://business.nj.gov/pages/paying-taxes",
+            "entity_search": "https://www.njportal.com/DOR/BusinessNameSearch/"
+        },
+    {
+        "state": "New Mexico",
+        "phone": "(505) 827-4508",
+        "fax": "(505) 827-4387",
+    
+            "website": "http://www.sos.state.nm.us/",
+            "filings": "https://www.sos.state.nm.us/business-services/business-maintenance/",
+            "taxes": "https://www.sos.state.nm.us/business-services/start-a-business/",
+            "entity_search": "https://portal.sos.state.nm.us/BFS/online/CorporationBusinessSearch"
+        },
+    {
+        "state": "New York",
+        "phone": "(518) 473-2492",
+        "fax": "(518) 474-1418",
+            "website": "http://www.dos.ny.gov/",
+            "filings": "https://dos.ny.gov/search/business-types",
+            "taxes": "http://www.tax.ny.gov/forms/",
+            "entity_search": "https://apps.dos.ny.gov/publicInquiry/"
+        },
+    {
+        "state": "North Carolina",
+        "address": "North Carolina Secretary of State PO Box 29622 Raleigh, NC 27626-0622",
+        "phone": "(919) 814-5400",
+        "fax": "(919) 814-5393",
+            "website": "https://www.sosnc.gov/",
+            "filings": "https://www.sosnc.gov/forms/by_title/_Business_Registration_Business_Entities_Common",
+            "taxes": "https://www.ncdor.gov/taxes-forms",
+            "entity_search": "https://www.sosnc.gov/search/index/corp"
+        },
+    {
+        "state": "North Dakota",
+        "address": "North Dakota Secretary of State 600 East Boulevard Avenue Bismarck, ND 58505-0500",
+        "phone": "(701) 328-4284",
+        "fax": "(701) 328-0106",
+    
+            "website": "http://www.nd.gov/sos/",
+            "filings": "https://firststop.sos.nd.gov/forms/business",
+            "taxes": "https://www.nd.gov/tax/",
+            "entity_search": "https://firststop.sos.nd.gov/search/business"
+        },
+    {
+        "state": "Ohio",
+        "address": "Ohio Secretary of State 180 Broad Street, 16th Floor Columbus, OH 43215",
+        "phone": "(614) 466-2655",
+    
+            "website": "http://www.sos.state.oh.us",
+            "filings": "https://www.sos.state.oh.us/businesses/filing-forms--fee-schedule/",
+            "taxes": "http://www.tax.ohio.gov/ohio_taxes.aspx",
+            "entity_search": "https://businesssearch.ohiosos.gov/"
+        },
+    {
+        "state": "Oklahoma",
+        "phone": "(405) 521-3912",
+        "fax": "(405) 521-3771",
+    
+            "website": "https://www.sos.ok.gov/",
+            "filings": "https://www.sos.ok.gov/business/forms.aspx",
+            "taxes": "http://www.ok.gov/tax/Forms_&_Publications/Forms/Business/",
+            "entity_search": "https://www.sos.ok.gov/corp/corpInquiryFind.aspx"
+        },
+    {
+        "state": "Oregon",
+        "address": "Oregon Office of the Secretary of State Public Service Building, Ste 151 255 Capitol Street NE Salem, OR 97310",
+        "phone": "(503) 986-2200",
+            "website": "http://sos.oregon.gov/Pages/default.aspx",
+            "filings": "http://sos.oregon.gov/business/Pages/business-registration-forms.aspx",
+            "taxes": "http://www.oregon.gov/dor/Pages/forms.aspx",
+            "entity_search": "http://egov.sos.state.or.us/br/pkg_web_name_srch_inq.login"
+        },
+    {
+        "state": "Pennsylvania",
+        "phone": "(717) 787-1057",
+        "fax": "(717) 783-2244",
+            "website": "https://www.dos.pa.gov/Pages/default.aspx",
+            "filings": "http://www.dos.pa.gov/BusinessCharities/Business/RegistrationForms/Pages/default.aspx#.VZVgdNIcHGV",
+            "taxes": "http://www.revenue.state.pa.us/portal/server.pt/community/forms___publications/14665",
+            "entity_search": "https://www.corporations.pa.gov/Search/CorpSearch"
+        },
+    {
+        "state": "Rhode Island",
+        "address": "Rhode Island Secretary of State 148 W. River Street Providence, RI 02904-2615",
+        "phone": "(401) 222-3040",
+        "fax": "(401) 222-1309",
+            "website": "https://www.sos.ri.gov/",
+            "filings": "http://sos.ri.gov/business/filings/corporateforms/",
+            "taxes": "http://www.tax.state.ri.us/taxforms/corporate.php",
+            "entity_search": "http://business.sos.ri.gov/CorpWeb/CorpSearch/CorpSearch.aspx"
+        },
+    {
+        "state": "South Carolina",
+        "address": "South Carolina Secretary of State 1205 Pendleton Street, Ste 525 Columbia, SC 29201",
+        "phone": "(803) 734-2158",
+        "fax": "(803) 734-1614",
+            "website": "http://www.scsos.com",
+            "filings": "https://businessfilings.sc.gov/BusinessFiling/Home/CategorizedForms",
+            "taxes": "http://www.sctax.org/forms/download",
+            "entity_search": "https://businessfilings.sc.gov/BusinessFiling/Entity/Search"
+        },
+    {
+        "state": "South Dakota",
+        "phone": "(605) 773-4845",
+        "fax": "(605) 773-4550",
+            "website": "https://sdsos.gov/default.aspx",
+            "filings": "https://sdsos.gov/business-services/corporations/corporate-forms/default.aspx",
+            "taxes": "http://www.state.sd.us/drr2/drrforms.htm",
+            "entity_search": "https://sosenterprise.sd.gov/BusinessServices/Business/FilingSearch.aspx"
+        },
+    {
+        "state": "Tennessee",
+        "address": "Tennessee Department of State 312 Rosa L. Parks Avenue, 6th Floor William R. Snodgrass Tower Nashville, TN 37243-1102",
+        "phone": "(615) 741-2286",
+            "website": "http://www.state.tn.us/sos/",
+            "filings": "http://sos.tn.gov/business-services/business-entity-filings",
+            "taxes": "https://www.tn.gov/revenue/tax-resources/forms/tax-specific-forms.html",
+            "entity_search": "http://tnbear.tn.gov/ECommerce/FilingSearch.aspx"
+        },
+    {
+        "state": "Texas",
+        "address": "Texas Secretary of State PO Box 13697 Austin, TX 78711",
+        "phone": "(512) 463-5555",
+        "fax": "(512) 463-5709",
+            "website": "http://www.sos.state.tx.us",
+            "filings": "http://www.sos.state.tx.us/corp/forms_option.shtml",
+            "taxes": "http://www.window.state.tx.us/forms/",
+            "entity_search": "https://mycpa.cpa.state.tx.us/coa/"
+        },
+    {
+        "state": "Utah",
+        "phone": "(801) 530-4849",
+        "fax": "(801) 530-6438",
+            "website": "http://www.utah.gov/government/secretary-of-state.html",
+            "filings": "http://www.corporations.utah.gov/business/index.html",
+            "taxes": "http://www.tax.utah.gov",
+            "entity_search": "https://secure.utah.gov/bes/"
+        },
+    {
+        "state": "Vermont",
+        "address": "Vermont Secretary of State 128 State Street Montpelier, VT 05633-1104",
+        "phone": "(802) 828-2386",
+        "fax": "(802) 828-2853",
+    
+            "website": "https://sos.vermont.gov/",
+            "filings": "https://sos.vermont.gov/",
+            "taxes": "https://tax.vermont.gov/tax-forms-and-publications",
+            "entity_search": "https://www.vtsosonline.com/online/BusinessInquire/"
+        },
+    {
+        "state": "Virginia",
+        "address": "Virginia State Corporation Commission 1300 East Main Street PO Box 1197 Richmond, VA 23218",
+        "phone": "(804) 371-9733",
+        "fax": "(804) 371-9133",
+    
+            "website": "http://www.scc.virginia.gov/index.aspx",
+            "filings": "http://www.scc.virginia.gov/clk/formfee.aspx",
+            "taxes": "http://www.tax.virginia.gov/",
+            "entity_search": "https://cis.scc.virginia.gov/"
+        },
+    {
+        "state": "Washington",
+        "address": "Washington Secretary of State 801 Capitol Way S PO Box 40234 Olympia, WA 98504-0234",
+        "phone": "(360) 725-0377",
+        "fax": "(360) 664-8781",
+            "website": "https://www.sos.wa.gov/",
+            "filings": "https://www.sos.wa.gov/corps/Forms.aspx",
+            "taxes": "http://dor.wa.gov/",
+            "entity_search": "https://ccfs.sos.wa.gov/#/AdvancedSearch"
+        },
+    {
+        "state": "West Virginia",
+        "phone": "(304) 558-8000",
+        "fax": "(304) 558-8381",
+            "website": "https://sos.wv.gov/Pages/default.aspx",
+            "filings": "https://sos.wv.gov/Forms/Pages/default.aspx",
+            "taxes": "https://tax.wv.gov/Business/Pages/Business.aspx",
+            "entity_search": "http://apps.sos.wv.gov/business/corporations/"
+        },
+    {
+        "state": "Wisconsin",
+        "address": "Wisconsin Department of Financial Institutions PO Box 93348 Milwaukee, WI 53293-0348",
+        "phone": "(608) 261-7577",
+        "fax": "(608) 267-6813",
+            "website": "http://www.wdfi.org",
+            "filings": "http://www.wdfi.org/corporations/forms/",
+            "taxes": "https://www.revenue.wi.gov/Pages/HTML/formpub.aspx",
+            "entity_search": "https://www.wdfi.org/apps/CorpSearch/Search.aspx?"
+        },
+    {
+        "state": "Wyoming",
+        "address": "Wyoming Secretary of State Herschler Building East 122 W. 25th Street, Ste 101 Cheyenne, WY 82002",
+        "phone": "(307) 777-7311",
+        "fax": "(307) 777-5339",
+        "website":"https://sos.wyo.gov/Business/Default.aspx",
+       "filings" :"https://sos.wyo.gov/Forms/Default.aspx",
+        "taxes":"https://revenue.wyo.gov/",
+        "entity_search":"https://wyobiz.wyo.gov/Business/FilingSearch.aspx"
+    }
+]

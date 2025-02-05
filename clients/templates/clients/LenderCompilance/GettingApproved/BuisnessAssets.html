@@ -1,0 +1,163 @@
+{% extends "clients/base.html" %}
+{% load static %}
+{% block title %}Business Assets{% endblock title %}
+{% block content %}
+
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Using Assets Can Make Getting Approved Faster</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">Let's determine what funding programs are currently available to you</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/Assets.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+    
+    <p class="text-gray-800 text-base mb-4">Many more funding programs will open up as your business becomes bankable.</p>
+    <p class="text-gray-800 text-base mb-4">Your existing assets can act as collateral for obtaining new business credit accounts. Financing and available credit based on assets can open many creative options.
+    </p>
+    <p class="text-gray-800 text-base mb-4">There are funding programs based on certain types of revenue streams that can be pledged as collateral. Other revenue streams can be sold outright for working capital. To maximize your business credit you will need to have some working capital to make down payments, initial purchases, etc.</p>
+    <div class="flex justify-center mt-6">
+      <a href="https://www.nass.org/business-services/ucc-filings" class="bg-green-500 text-white font-medium py-2 px-6 rounded hover:bg-green-600">
+        Check Your Possible UCC Filings
+      </a>
+    </div>
+    
+
+</div>
+  <!-- Form Section -->
+  <form method="POST" action="{% url 'business' business.pk %}">
+    {% csrf_token %}
+    <!-- Form Container -->
+    <div class="container px-6 mx-auto grid mt-4">
+      <p class="text-red-500 font-bold  text-lg mb-4">
+        *** Special Note ***
+    </p>
+    
+        <p class="text-gray-800 text-base mb-4">
+          You can build business credit without having or using assets. Leveraging assets can provide a means to acquire working capital. If used properly, assets can expedite the business credit building process.
+          </p>
+
+        <!-- Form Fields -->
+        <div class="space-y-4">
+            <!-- personal Assets-->
+             <h3>Personal assets</h3>
+            <div class="flex items-center mb-4">
+              <span class="text-sm font-bold text-gray-700 w-1/3">Do the owners own residential real estate? </span>
+              <div class="flex space-x-4 w-2/3">
+                <label class="flex items-center">
+                  <input type="radio" name="business_plan" value="Yes" class="mr-2" {% if business.trademark_verified %}checked{% endif %}>
+                  Yes
+                </label>
+                <label class="flex items-center">
+                  <input type="radio" name="business_plan" value="No" class="mr-2" {% if not business.trademark_verified %}checked{% endif %}>
+                  No
+                </label>
+              </div>
+            </div>
+            
+
+            <!-- Price details -->
+            <div class="flex items-center">
+                <label for="property_value" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">What is the current market value of the property?</label>
+                <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                  {% for code, price_choice in price_choices %}
+                      <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+                  {% endfor %}
+              </select>
+              
+            </div>
+            <div class="flex items-center">
+              <label for="property_value" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">What is the currently owed against of the property?</label>
+              <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                {% for code, price_choice in price_choices %}
+                    <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+                {% endfor %}
+            </select>
+          </div>
+
+            <!-- personal Assets-->
+            <h3>Are you currently receiving payments from:</h3>
+            <!-- Price details -->
+            <div class="flex items-center">
+                <label for="property_value" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Amount of monthly payment for Real Estate Secured Note(s):</label>
+                <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                  {% for code, price_choice in price_choices %}
+                      <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+                  {% endfor %}
+              </select>
+              
+            </div>
+            <div class="flex items-center">
+              <label for="property_value" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Amount of monthly payment for Structured Settlement(s):</label>
+              <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                {% for code, price_choice in price_choices %}
+                    <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+                {% endfor %}
+            </select>
+            
+          </div>  
+          <div class="flex items-center">
+            <label for="property_value" class="w-1/3 text-sm font-bold text-gray-700 dark:text-gray-300">Total value of IRA & 401K investments:</label>
+            <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+              {% for code, price_choice in price_choices %}
+                  <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+              {% endfor %}
+          </select>
+        </div>
+          <!-- personal Assets-->
+          <h3>Business assets</h3>
+          <!-- Price details -->
+          <div class="flex items-center">
+              <label for="property_value" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Amount of outstanding invoices with customers(Existing receivables from businesses, not consumers)</label>
+              <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                {% for code, price_choice in price_choices %}
+                    <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="flex items-center">
+          <label for="property_value" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Current amount of existing purchase orders(Actual open business purchase orders, not contracts)
+            </label>
+          <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+            {% for code, price_choice in price_choices %}
+                <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="flex items-center">
+      <label for="property_value" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Total value of equipment owned outright
+        (Original invoice value of your existing equipment)
+        </label>
+      <select id="property_value" name="property_value" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+        {% for code, price_choice in price_choices %}
+            <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+            
+
+            
+
+            
+
+            
+        </div>
+
+        <!-- Center-Aligned Buttons -->
+        <div class="flex justify-center space-x-4 mt-6">
+          <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+          <a href="{% url 'clientindex' %}" 
+            class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+            Dashboard
+            </a>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+        </div>
+    </div>   
+</form>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,168 @@
+{% extends "serviceprovider/base.html" %}
+{% block title %}Edit Member details{% endblock title %}
+{% block content %}
+<div class="container mx-auto p-4 h-screen overflow-auto">
+<!-- Form Starts -->
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Tabs Section -->
+        <div class="flex space-x-4 border-b border-gray-300 pb-2 mb-2">
+            <a href="#" class="text-blue-600 font-semibold">End User Information</a>
+        </div>
+
+   <!-- Contact Info Section -->
+   <div class="bg-gray-50 dark:bg-gray-800 p-3 rounded-md mb-2">
+    <!-- Contact Info Header -->
+    <div class="bg-blue-100 dark:bg-gray-800 p-2 rounded-md mb-3">
+        <h2 class="text-lg font-bold text-gray-700 dark:text-gray-300">Contact Info</h2>
+    </div>
+    <!-- Form Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Company:</label>
+            <input type="text" name='company' value="{{ business.business_legal_name }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Address:</label>
+            <input type="text" name='address' value="{{ business.address }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">First Name:</label>
+            <input type="text" name='firstname' value="{{ business.first_name }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">City:</label>
+            <input type="text" name='city' value="{{ business.city }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Last Name:</label>
+            <input type="text" name='lastname' value="{{ business.last_name }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+            <div>
+                <label class="block text-gray-600 dark:text-gray-300 font-semibold">State:</label>
+                <input type="text" name='state' value="{{ business.state }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+            </div>
+            <div>
+                <label class="block text-gray-600 dark:text-gray-300 font-semibold">Zip:</label>
+                <input type="text" name='zip_code' value="{{ business.zip_code }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% comment %} Account Info {% endcomment %}
+<div class="bg-gray-50 dark:bg-gray-800 p-3 rounded-md mb-2">
+    <!-- Header -->
+    <div class="bg-blue-100 dark:bg-gray-800 p-2 rounded-md mb-3">
+        <h2 class="text-lg font-bold text-gray-700 dark:text-gray-100">Account Info</h2>
+    </div>
+
+    <!-- Form Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <!-- User ID -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">User ID:</label>
+            <input type="text" value="{{user.id}}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" disabled />
+        </div>
+
+        <!-- Site -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Site:</label>
+            <input type="text" name='business_domain' value="{{ business.domain_name }}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+
+        <!-- Username -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Username:</label>
+            <input type="text" name='user_name' value="{{user.username}}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+        <!-- Password -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Password:</label>
+            <input type="password" name='password' value="{{user.password}}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+
+        <!-- Last Login -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Last Login:</label>
+            <input type="text" value="{{user.account_info.last_login}}" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+
+        <!-- Signup Date -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Signup Date:</label>
+            <input type="text" value="11/7/2023 11:33:16 AM" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring" />
+        </div>
+    </div>
+</div>
+
+    <!-- Other Info Section -->
+<div class="bg-gray-50 dark:bg-gray-800 p-3 rounded-md mb-2">
+    <!-- Header Section -->
+    <div class="bg-blue-100 dark:bg-gray-800 p-2 rounded-md mb-3">
+        <h2 class="text-lg font-bold text-gray-700 dark:text-gray-100">Other Info</h2>
+    </div>
+
+    <!-- Form Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <!-- Paid User -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Paid User:</label>
+            <input type="checkbox" checked class="form-checkbox text-blue-500 focus:ring focus:ring-blue-500 dark:focus:ring-blue-300">
+            <span class="ml-1 text-gray-700 dark:text-gray-200">Paid User Activated Date: 11/14/2023</span>
+        </div>
+
+        <!-- Payment Approved -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Payment Approved:</label>
+            <select class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring focus:ring-blue-500 dark:focus:ring-blue-300">
+                <option>No</option>
+                <option>Yes</option>
+            </select>
+        </div>
+
+        <!-- Status -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Status:</label>
+            <select class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring focus:ring-blue-500 dark:focus:ring-blue-300">
+                <option>Responding</option>
+            </select>
+        </div>
+
+        <!-- Timer -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Timer:</label>
+            <input type="text" value="350 Days the user has been in the system" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring focus:ring-blue-500 dark:focus:ring-blue-300">
+        </div>
+
+        <!-- Notes -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Notes:</label>
+            <textarea class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring focus:ring-blue-500 dark:focus:ring-blue-300">#Needed,#Completed</textarea>
+        </div>
+
+        <!-- Concierge Call -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Concierge Call:</label>
+            <input type="text" class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring focus:ring-blue-500 dark:focus:ring-blue-300">
+        </div>
+
+        <!-- Referral Agent -->
+        <div>
+            <label class="block text-gray-600 dark:text-gray-300 font-semibold">Referral Agent:</label>
+            <select class="w-full px-2 py-1 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring focus:ring-blue-500 dark:focus:ring-blue-300">
+                <option>Doc, Demello</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+    <!-- Buttons Section -->
+    <div class="flex justify-center space-x-4">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" type='submit'>Save</button>
+        <a href="{% url 'login_as_user' user.id %}" target="_blank" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Login as User</a>
+    </div>
+</form>
+</div>
+{% endblock %}

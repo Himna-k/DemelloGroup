@@ -1,0 +1,266 @@
+{% extends "clients/base.html" %}
+{% load static %}
+{% block title %}Website and Email{% endblock title %}
+{% block content %}
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Business Domain, Website, and Professional Email</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">Your business needs a domain, website, and professional email accounts</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/website_headder.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+    <p class="text-gray-800 text-base mb-4">Having a business website with professional email addresses is no longer just a good business idea. Credit providers look at these as indicators that you have a legitimate business.</p>
+    <p class="text-gray-800 text-base mb-4">Lenders and credit providers are constantly looking for ways to limit their exposure to bad debt defaults. One way they are doing that today is with an analysis of your website. When credit providers research your company on the internet, it is best if they learn everything they need to know about your business directly from your company website.</p>
+    <p class="text-gray-800 text-base mb-4">Many business owners fail to see that not having a company website is hurting their chances of obtaining multiple trade lines from various vendors. Social Media pages are not enough for many creditors. Having a social media presence without a company website is often an indicator that you are not a serious business owner and therefore pose a much greater risk of default.</p>
+  <!-- Compliance Item - Business Domain -->
+<h1 class="text-lg font-semibold text-black mb-4 mt-4">Compliance Item - Business Domain</h1>
+<div class="border border-blue-300 rounded">
+  <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+    Compliance Item Fix - Business Domain
+  </h2>
+  <div class="p-4 bg-white">
+    <p class="text-sm text-black mb-4">
+      The Domain Search just below will check the availability of your domain name. If your business name is already taken as a ".com" address, try some variations of it, like .net or .org. You can also try variations of the business name itself until you find an available one.
+    </p>
+    
+    <!-- Domain Search Form -->
+    <div class="flex items-center space-x-4">
+      <!-- Input Field for the Domain -->
+      <input 
+      type="text" 
+      name="domain" 
+      id="domainInput"
+       placeholder="Enter domain name"
+      class="w-full md:w-2/3 py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <!-- Dropdown for Domain Extensions -->
+      <select 
+      id="domainExtension"
+        class="py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option value=".com">.com</option>
+        <option value=".net">.net</option>
+        <option value=".org">.org</option>
+        <option value=".biz">.biz</option>
+        <option value=".co">.co</option>
+        <option value=".mobi">.mobi</option>
+        <option value=".info">.info</option>
+        <option value=".us">.us</option>
+        <option value=".tv">.tv</option>
+        <option value=".ws">.ws</option>
+        <option value=".name">.name</option>
+        <option value=".edu">.edu</option>
+        <option value=".online">.online</option>
+        <option value=".shop">.shop</option>
+        <option value=".site">.site</option>
+        <option value=".app">.app</option>
+        <option value=".top">.top</option>
+        <option value=".xyz">.xyz</option>
+        <option value=".live">.live</option>
+        <option value=".fit">.fit</option>
+      </select>
+      <!-- Search Button -->
+      <button 
+        id="searchButton"
+        class="bg-blue-600 text-white font-bold py-2 px-6 rounded-md hover:bg-blue-700"
+      >
+        Search
+      </button>
+    </div>
+    
+
+    <!-- Footer Note -->
+    <p class="mt-4 text-sm text-black">
+      Credit providers check to see that you have a business domain and a professional email address.
+    </p>
+  </div>
+</div>
+
+    <p class="text-gray-800 text-base mt-4">Business lenders are going to check to see that you have a well done website. "Well Done" means that your web analyis score is a 60 or above. In the Increase Exposure section we will be scanning for your web analysis score that checks for errors on your website, mobile friendliness, SEO status, backlinks and many other items your website should have covered. First, you need to have a business website and later make sure your web analysis score is a 60 or above.</p>
+    
+    <h1 class="text-lg font-semibold text-black mt-4">Compliance Item - Business Website</h1>
+<div class="border border-blue-300 rounded mt-4">
+  <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+    Compliance Item Fix - Business Website
+  </h2>
+  
+  <div class="p-4 bg-white">
+    <div class="p-8 bg-white text-center">
+      <div class="grid grid-cols-2 gap-4 items-center">
+        <!-- godaddy.com -->
+        <img src="{% static 'img/godaddy.png' %}" alt="godaddy" class="w-40 mx-auto">
+        <a
+          href="https://www.godaddy.com/en-in/websites/website-builder"
+          class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+          target="_blank"
+        >
+          Go To Godaddy.com
+        </a>
+    
+        <!-- wix -->
+        <img src="{% static 'img/wix.png' %}" alt="wix" class="w-40 mx-auto">
+        <a
+          href="https://www.wix.com/website/design"
+          class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+          target="_blank"
+        >
+          Go To Wix.com
+        </a>
+    
+        
+    
+        <!-- Squarespace-->
+        <img src="{% static 'img/squarespace.png' %}" alt="squarespace" class="w-40 mx-auto">
+        <a
+          href="https://www.squarespace.com/website-design"
+          class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+          target="_blank"
+        >
+          Go To SquareSpace.com
+        </a>
+      
+      <!-- wordpress-->
+      <img src="{% static 'img/wordpress.png' %}" alt="ringcentral" class="w-40 mx-auto">
+      <a
+        href="https://wordpress.com/website-builder/"
+        class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+        target="_blank"
+      >
+        Go To wordpress.com
+      </a>
+    </div>
+      <!-- Footer Note -->
+      <p class="mt-6 text-sm text-gray-500">
+        The system provider may receive compensation for referrals to third party service companies.
+      </p>
+    </div>
+  </div>
+   
+</div>
+<p class="text-gray-800 text-base mt-4">It's not only professional, it also increases your chances of getting approved by credit providers. If your business email address is joesplumbing@gmail.com you are much more likely to get declined than if your email is joe@joesplumbing.com.</p>
+<p class="text-gray-800 text-base mt-4">The reason this is important is that lenders look backwards. What this means is that in the past those businesses whose emails end in a free email extension such as @gmail or @yahoo or @msn, or @hotmail etc. slready had default rates that were 10 to 20 times more than those businesses with professional emails. By having your business email end in gmail.com or any other free extension indicates to a lender that you are 10 to 20 times more likely to default.</p>    
+<p class="text-gray-800 text-base mt-4">Setting up a professional business email address is just too easy and inexpensive to neglect and risk being declined becuase you didn't to it.</p>
+<h1 class="text-lg font-semibold text-black mt-4">Compliance Item - Professional Email</h1>
+<div class="border border-blue-300 rounded mt-4">
+  <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+    Compliance Item Fix - Professional Email Accounts
+  </h2>
+  
+  <div class="p-4 bg-white">
+    <div class="p-8 bg-white text-center">
+      <div class="grid grid-cols-2 gap-4 items-center">
+        <!-- google workspace-->
+        <img src="{% static 'img/googleworkspace.png' %}" alt="googleworkspace" class="w-40 mx-auto">
+        <a
+          href="https://workspace.google.com/"
+          class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+          target="_blank"
+        >
+          Go To workspace.com
+        </a>
+    
+        <!-- microsoft -->
+        <img src="{% static 'img/microsoft.png' %}" alt="microsoft" class="w-40 mx-auto">
+        <a
+          href="https://www.microsoft.com/en-us/microsoft-365/"
+          class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+          target="_blank"
+        >
+          Go To Microsoft.com
+        </a>
+    
+        
+    
+        <!-- namecheap-->
+        <img src="{% static 'img/namecheap.png' %}" alt="namecheap" class="w-40 mx-auto">
+        <a
+          href="https://www.namecheap.com/hosting/email/"
+          class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+          target="_blank"
+        >
+          Go To Namecheap.com
+        </a>
+      
+      <!-- fastmail-->
+      <img src="{% static 'img/fastmail.png' %}" alt="ringcentral" class="w-40 mx-auto">
+      <a
+        href="https://www.fastmail.com/"
+        class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+        target="_blank"
+      >
+        Go To wordpress.com
+      </a>
+    </div>
+      <!-- Footer Note -->
+      <p class="mt-6 text-sm text-gray-500">
+        The system provider may receive compensation for referrals to third party service companies.
+      </p>
+    </div>
+  </div>
+   
+</div>
+        <p class="text-gray-800 text-base mt-4">In addition, since searching the internet is the number one tool used to locate a business today, it’s crucial to make sure your business is listed on major online business directories. While there are many popular online directories to get listed with there are several key sites that play a role in the business credit building process.</p>
+    
+        <form method="POST" action="{% url 'website' business.pk %}">
+            {% csrf_token %}
+            <div class="container max-w-6xl mx-auto p-6 ">
+                <!-- Form Heading -->
+                <h2 class="text-center text-base font-semibold text-gray-700 mb-6">
+                    Please verify you have a business website and have at least one professional business email address that is not a free email account service.
+                </h2>
+        
+                <!-- Form Fields -->
+                <div class="space-y-4">
+                    <!-- Company Domain Name -->
+                    <div class="flex items-start mb-4">
+                        <label class="text-sm font-medium text-gray-700 w-1/3">Company domain name:</label>
+                        <div class="w-2/3">
+                            <input type="text" name="domain" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200" value="{{ business.domain_name|default:'' }}">
+                            <p class="text-xs text-gray-500 mt-1">(enter without http:// or www)</p>
+                        </div>
+                    </div>
+        
+                    <!-- Company Email Address -->
+                    <div class="flex items-center mb-4">
+                        <label class="text-sm font-medium text-gray-700 w-1/3">Company email address:</label>
+                        <input type="email" name="buisness_mail" class="w-2/3 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200" value="{{ business.business_email|default:'' }}">
+                    </div>
+        
+                    <!-- Personal Email Address -->
+                    <div class="flex items-center mb-4">
+                        <label class="text-sm font-medium text-gray-700 w-1/3">Your personal email address:</label>
+                        <input type="email" name="personal_mail" class="w-2/3 p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200" value="{{ business.email|default:'' }}">
+                    </div>
+        
+                    <!-- Acknowledgment Section -->
+                    <div class="border border-gray-300 rounded p-4 bg-gray-100 text-gray-700 text-sm mb-6">
+                        <p><strong>Acknowledgement</strong></p>
+                        <p class="mt-1">
+                            By clicking next, you certify that you have successfully set up and correctly entered your company domain name and email address in the fields above.
+                        </p>
+                    </div>
+        
+                    <!-- Center-Aligned Buttons -->
+                    <div class="flex justify-center space-x-4 mt-6">
+                        <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+    <a href="{% url 'clientindex' %}" 
+      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+      Dashboard
+    </a>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+</div>
+{% block extra_js %}
+<script src="{% static 'js/search.js' %}"></script>
+{% endblock extra_js%}
+{% endblock content %}
+
+
+

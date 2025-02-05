@@ -1,0 +1,209 @@
+{% extends "clients/base.html" %}
+{% load static %}
+{% block title %}Business Location{% endblock title %}
+{% block content %}
+
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Your Business Must Be At A USPS Listed Business Address</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">Having a USPS listed business address is an important component.</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/b_location_headder.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+    <h2 class="text-xl font-semibold text-black mb-4">You can have a home-based business but it will limit your access to certain lenders.</h2>
+    <p class="text-gray-800 text-base mb-4">Building strong business credit and getting approved for financing is all about paying attention to the details. It is very important that we have your exact business legal name. This includes the recorded DBA filing you will be using. It is not required to have a DBA, but if you need one (or already have one) there are potential issues to be aware of.</p>
+    <p class="text-gray-800 text-base mb-4">Filing DBAs for your Corporation or LLC can cause multiple credit files to open if you're not careful. For example, say your business bank account is under "ABC Corporation" but you open a credit account as "ABC Corporation, dba ABC Tire Service", and you have another credit account that you opened as just "ABC Tire Service".
+    </p>
+    <p class="text-gray-800 text-base mb-4">What will happen in the above example is that your business ends up with three open credit files under all three names...and now you have a mess. If you're going to use a DBA you'll need to avoid creating duplicate credit files. All banking, utilities, offices leases, credit accounts, etc. must be opened as "ABC Corporation dba ABC Tire Service".</p>
+
+    
+  
+    <!-- Business Location Section -->
+    <div>
+      <h2 class="text-lg font-bold mb-4">
+        Business Address and Location:
+      </h2>
+      <p class="text-gray-800 text-base mb-4">
+        Past history has shown lenders that home based businesses default on their loans at a rate of 10 to 20 times higher than that of physical business location businesses. What this means is that if you put a residential address on any business loan or credit application then you will be immediately tagged as a much higher risk of default and therefore much more likely to be declined.</p>
+      <p class="text-gray-800 text-base mb-4">
+        The address of your business needs to look like a business address. Do not use a post office box. You can use your home address for business credit building, but be aware that some lenders will not fund "home based" businesses. This will not stop you from building business credit scores, but may limit your funding options.</p>
+        <p class="text-gray-800 text-base mb-4">
+            Our system is integrated with the USPS database. So the best way to know if the address you are using will work or not is to test it. Put the address in and click "save and continue". Then come back to this page. If the address shows "residential or mail stop" it is something you will need to fix. If the address comes back as "business or unknown", you are fine using that address for your business.
+        </p>
+    </div>
+    <h1 class="text-lg font-semibold text-black mb-4 mt-4">Compliance Item - DO NOT USE MAIL STOPS (Box Rentals)</h1>
+    <div class="border border-blue-300 rounded">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Compliance Item Warning - Using Mail Stop Addresses May Get You Declined
+      </h2>
+      <div class="p-4 bg-white">
+        <p class="text-sm text-black">
+            A Mail Stop is your local post office or postal type store that will rent you a mailbox inside their store location. These type of addresses will show to lenders and credit providers that your business is not real and may be a very high risk of default. These are NOT virtual offices and are services such as: The UPS Store, Fedex Office, Postal Annex, Postnet, and any other local name that might offer the same type service,</p>
+        <p class="text-sm text-black mt-4">
+            Know that potential creditors will Google your stated business location and see these store fronts are obviously not your business location. When your business address is Google searched you want it to show as an office building, executive suite, or shared work space.</p>
+      </div>
+    </div>
+
+    
+    <h1 class="text-lg font-semibold text-black mt-4">Compliance Item - USPS Listed Business Address</h1>
+<div class="border border-blue-300 rounded mt-4">
+  <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+    Compliance Item - USPS Listed Business Address
+  </h2>
+  
+  <div class="p-4 bg-white">
+    <p class="text-sm text-black mt-2">
+      To properly establish and build credit, your business needs a deliverable physical address and not a PO Box. If you don't have an actual storefront or office location, you can run your business from anywhere and still have a qualifying business address with a Virtual Office Solution.
+    </p>
+    <p class="text-sm text-black mt-2">
+      Visit any of these providers to learn more about USPS Compliant business address solutions in your area?
+    </p>
+    <div class="p-8 bg-white text-center">
+      <div class="grid grid-cols-2 gap-4 items-center">
+        <!-- davinci -->
+          <img src="{% static 'img/davinci.png' %}" alt="davinci" class="w-40 mx-auto">
+          <a
+            href="https://www.davincivirtual.com/?rfsn=6640436.0bf7ff"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To DavinciVirtual.com
+          </a>
+        
+    
+        <!-- opus -->
+        
+          <img src="{% static 'img/opus.png' %}" alt="opus" class="w-40 mx-auto">
+          <a
+            href="https://www.opusvirtualoffices.com/?acode=affida"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To OpusVirtualOffice.com
+          </a>
+        
+    
+        <!-- alliance -->
+        
+          <img src="{% static 'img/alliance.png' %}" alt="alliance" class="w-40 mx-auto">
+          <a
+            href="https://www.alliancevirtualoffices.com/"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To AllianceVirtualOffice.com
+          </a>
+        
+    
+        
+        <!-- ipostal -->
+        
+          <img src="{% static 'img/ipostal.png' %}" alt="ipostal" class="w-40 mx-auto">
+          <a
+            href="https://ipostal1.com/affiliate_affiliate.php"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To ipostala1.com
+          </a>
+        </div>
+  <!-- Footer Note -->
+  <p class="mt-6 text-sm text-gray-500">
+    The system provider may receive compensation for referrals to third party service companies.
+  </p>
+</div>
+</div>
+</div>
+  <!-- Form Section -->
+  <form method="POST" action="{% url 'business' business.pk %}">
+    {% csrf_token %}
+    <!-- Form Container -->
+    <div class="container px-6 mx-auto grid mt-4">
+        <!-- Form Title -->
+        <h2 class="text-center text-base font-semibold text-gray-700 dark:text-gray-300 mb-6">
+            Please complete the information for the physical location of your business. This might be different from the state where your entity was formed:
+        </h2>
+
+        <!-- Form Fields -->
+        <div class="space-y-4">
+            <!-- Business Legal Name -->
+            <div class="flex items-center">
+                <label for="businessName" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Exact Business Legal Name:</label>
+                <input type="text" id="businessName" name="businessName" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300" value="{{ business.business_legal_name }}" >
+            </div>
+
+            <!-- Primary Contact Name -->
+            <div class="flex items-start">
+                <label class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Primary Contact Name:</label>
+                <div class="w-2/3 flex space-x-2">
+                    <input type="text" name="firstName" class="w-1/2 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300" placeholder="First" value="{{ business.first_name }}" >
+                    <input type="text" name="lastName" class="w-1/2 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300" placeholder="Last" value="{{ business.last_name }}">
+                </div>
+            </div>
+
+            <!-- Primary Contact Title -->
+            <div class="flex items-center">
+                <label for="contactTitle" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Primary Contact Title:</label>
+                <select id="contactTitle" name="contactTitle" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                    {% for code, title in title_choices %}
+                        <option value="{{ code }}" {% if business.primary_contact_title == code %}selected{% endif %}>{{ title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Primary Contact Phone Number -->
+            <div class="flex flex-col items-start mb-2">
+                <label for="contactPhone" class="w-full text-sm font-medium text-gray-700 dark:text-gray-300 flex-none">Primary Contact Phone Number:</label>
+                <input type="text" id="contactPhone" name="contactPhone" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300" value="{{ business.phone }}" required>
+                <small class="text-gray-500 dark:text-gray-400">(Cell Phone)</small>
+            </div>
+
+            <!-- Business Address -->
+            <div class="flex flex-col items-start mb-2">
+                <label for="businessAddress" class="w-full text-sm font-medium text-gray-700 dark:text-gray-300 flex-none">Business Address:</label>
+                <input type="text" id="businessAddress" name="businessAddress" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300" value="{{ business.address }}" required>
+                <small class="text-gray-500 dark:text-gray-400">(Do not use a "PO Box")</small>
+            </div>
+
+            <!-- City -->
+            <div class="flex items-center">
+                <label for="city" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">City:</label>
+                <input type="text" id="city" name="city" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300" value="{{ business.city }}" required>
+            </div>
+
+            <!-- State -->
+            <div class="flex items-center">
+                <label for="state" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">State:</label>
+                <select id="state" name="state" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                    {% for code, name in state_choices %}
+                        <option value="{{ code }}" {% if business.state == code %}selected{% endif %}>{{ name }}</option>
+                    {% endfor %}
+                </select>
+                <small class="text-gray-500 dark:text-gray-400">(U.S. only)</small>
+            </div>
+
+            <!-- Zip Code -->
+            <div class="flex items-center">
+                <label for="zipCode" class="w-1/3 text-sm font-medium text-gray-700 dark:text-gray-300">Zip Code:</label>
+                <input type="text" id="zipCode" name="zipCode" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300" value="{{ business.zip_code }}" required>
+            </div>
+        </div>
+
+        <!-- Center-Aligned Buttons -->
+        <div class="flex justify-center space-x-4 mt-6">
+          <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+          <a href="{% url 'clientindex' %}" 
+            class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+            Dashboard
+            </a>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+        </div>
+    </div>   
+</form>
+</div>
+{% endblock content %}
+

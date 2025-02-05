@@ -1,0 +1,188 @@
+{% extends "clients/base.html" %}
+{% load static %}
+{% block title %}Entity and Filings{% endblock title %}
+{% block content %}
+
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Your Business Bank Account Is When You Started</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">Business bank account must have the exact State and Federal filed name</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/banking_headder.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+    <h2 class="text-xl font-semibold text-black mb-4">The day your business bank account opens is the day that is considered as your business started rather than just the day you filed it.</h2>
+    <p class="text-gray-800 text-base mb-4">Decide which bank you want to open an account with and call or email them. Ask what their specific requirements are for opening a business checking account. Generally, most banks require a copy of your business certificate from the secretary of state, an IRS document with your EIN number on it, and sometimes your articles of incorporation.</p>
+    <p class="text-gray-800 text-base mb-4">The date you open your business bank account is the day that lenders consider your business started. If you incorporated your business 10 years ago, but you just opened the business bank account yesterday, then your business started yesterday.</p>
+    
+  
+
+    <h1 class="text-lg font-semibold text-black mb-4">Compliance Item - Business Bank Account</h1>
+    <div class="border border-blue-300 rounded mb-4">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Compliance Item Fix - Auditing Business Bank Account Details
+      </h2>
+      
+      <div class="p-4 bg-white">
+        <h3 class="text-lg font-bold">Banking Name</h3>
+        <p class="text-sm text-black mb-2">
+            The first step in establishing positive Bank Credit is to make sure that your business name and mailing address, as listed on your business bank account(s), matches exactly how your business name and address appear on your legal paperwork that has been filed with the State. It must also match exactly with the name and address that appear on any Federal EIN paperwork. If it does not match GET IT CORRECTED IMMEDIATELY.
+        </p>
+        <h3 class="text-md font-bold ">Banking History</h3>
+        <p class="text-sm text-black mb-2">
+            Most lenders determine the age of your business by the date you first opened your business banking account and not the date that appears on your Incorporation, LLC, or EIN paperwork. The date you filed paperwork is of no concern to lenders, or to the business credit agencies. Everything in business lending and credit starts from the day you open your business bank account.
+        </p>
+        <p class="text-sm text-black mb-2">
+        Your business banking history is vital to your success of being able to secure larger business loans. Lenders look to see how long that relationship has been established. The longer your business banking history, the better your borrowing potential.</p>
+        
+      </div>
+    </div>
+    <!---->
+    <h1 class="text-lg font-semibold text-black mb-4 mt-4">Cautionary Item - Online Only Business Banking</h1>
+    <div class="border border-blue-300 rounded">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        May Impact Funding Approvals - Lenders Can't Access Required Banking Details
+      </h2>
+      <div class="p-4 bg-white">
+        <p class="text-sm text-black">
+            While online only banking continues to become more and more popular, the problem with it is that some technology has not kept up. What this means to you is that in many cases lenders computers cannot instantly access the data they need about your business banking to make their approvals and therefore you get declined. These are services such as "Plaid" not connecting, ACH payments not drafting, E-checks not processing, and Bank Ratings not responding or Bank Verifications not returning the required data.
+        </p>
+        <p class="text-sm text-black mt-4">
+            Therefore, while using an online only business bank account might be easy and inexpensive it can cause your business to get declined. It is recommended that if you have an account with any of these online only banks that you also maintain a business account with a more brick and mortar bank.
+        </p>
+        
+          <div class="grid grid-cols-2 gap-1 text-left text-gray-800 mt-4">
+            <ul class="space-y-2">
+              <li>Lili</li>
+              <li>Bluevine</li>
+              <li>Found</li>
+              <li>Mercury</li>
+              <li>Oxygen</li>
+            </ul>
+            <ul class="space-y-2">
+              
+              <li>novo</li>
+              <li>grasshopper</li>
+              <li>axos</li>
+              <li>relay</li>
+              <li>LiveOak</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+      
+    <h1 class="text-lg font-semibold text-black mb-4 mt-4">Merchant Credit Card Processing</h1>
+    <div class="border border-blue-300 rounded">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Accept Credit Cards & Take Online/Mobile Payment
+      </h2>
+      <div class="p-4 bg-white">
+        <p class="text-sm text-black">
+            Most businesses can benefit from being able to accept credit cards as payment for their products and services by making it easier for your customers to pay you. There are also programs that will advance you funding based on your monthly credit card receipts. To accept credit card payments you will need a merchant account processor.
+        </p>
+        <h3 class="text-lg font-bold mt-4">To get a Merchant Account that helps you generate more revenue, click below:</h3>
+      </div>
+      <div class="p-8 bg-white text-center">
+        <div class="grid grid-cols-2 gap-4 items-center">
+          <!-- Charge.com -->
+          <img src="{% static 'img/charge.png' %}" alt="charge" class="w-40 mx-auto">
+          <a
+            href="https://www.charge.com/"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To Charge.com
+          </a>
+      
+          <!-- national processing-->
+          <img src="{% static 'img/national.png' %}" alt="national" class="w-40 mx-auto">
+          <a
+            href="https://nationalprocessing.com/"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To NationalProcessing.com
+          </a>
+      
+          <!-- stripe -->
+          <img src="{% static 'img/stripe.png' %}" alt="Stripe" class="w-40 mx-auto">
+          <a
+            href="https://stripe.com/in"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To Stripe.com
+          </a>
+      
+          <!-- squareup -->
+          <img src="{% static 'img/squareup.png' %}" alt="squareup" class="w-40 mx-auto">
+          <a
+            href="https://squareup.com/us/en"
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600"
+            target="_blank"
+          >
+            Go To SquareUp.com
+          </a>
+        </div>
+      
+        <!-- Footer Note -->
+        <p class="mt-6 text-sm text-gray-500">
+          The system provider may receive compensation for referrals to third party service companies.
+        </p>
+      </div>
+    </div>
+    <form method="POST" action="{% url 'banking' business.pk %}">
+        {% csrf_token %}
+    <!-- Form Container -->
+    <div class="container px-6 mx-auto grid">
+        
+        
+         <!-- EIN Verification -->
+         <div class="flex items-center mt-2">
+            <label class="text-sm font-semibold text-gray-700 w-3/4">Has your business bank account been opened with your EIN Number?</label>
+            <div class="w-4/5 flex space-x-2">
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="account_linked" value="yes" class="mr-1 text-blue-600 focus:ring-blue-500" {% if  business.account_linked %}checked{% endif %}>
+                    Yes
+                </label>
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="account_linked" value="no" class="mr-1 text-blue-600 focus:ring-blue-500" {% if not business.account_linked %}checked{% endif %}>
+                    No
+                </label>
+            </div>
+        </div>
+    
+        <!-- Licenses and Permits Verification -->
+        <div class="flex items-center mt-2">
+            <label class="text-sm font-semibold text-gray-700 w-3/4">Has your business established a merchant account to accept credit card payments?</label>
+            <div class="w-4/5 flex space-x-2">
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="establish_merchant_account" value="yes" class="mr-1 text-blue-600 focus:ring-blue-500" {% if  business.establish_merchant_account %}checked{% endif %}>
+                    Yes
+                </label>
+                <label class="flex items-center text-gray-700">
+                    <input type="radio" name="establish_merchant_account" value="no" class="mr-1 text-blue-600 focus:ring-blue-500" {% if not business.establish_merchant_account %}checked{% endif %}>
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Center-Aligned Buttons -->
+    <div class="flex justify-center space-x-4 mt-6">
+        <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+        <a href="{% url 'clientindex' %}" 
+        class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+        Dashboard
+        </a>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+    </div>
+    </div>
+    </form>
+</div>
+
+{% endblock content %}
+
