@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'django_browser_reload.middleware.BrowserReloadMiddleware',
-    'whitenoise.middleware. WhiteNoiseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     # 'clientmanagement.middleware.RedirectBasedOnProfileMiddleware'
 ]
 
