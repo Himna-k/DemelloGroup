@@ -63,11 +63,9 @@ def register_business(request):
             messages.success(request, "Business registration successful.")
             return redirect('clientindex')
         except IntegrityError as e:
-            print("IntegrityError:", e)
             messages.error(request, "There was an integrity error saving the business details.")
             return redirect('business_registration')
         except Exception as e:
-            print("Error creating Business:", e)
             messages.error(request, "There was an unexpected error saving the business details.")
             return redirect('business_registration')
 
