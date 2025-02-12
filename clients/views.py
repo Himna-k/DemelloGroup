@@ -1,5 +1,8 @@
 # client/views.py
 import json,os
+import logging
+
+
 from django.conf import settings
 from django.shortcuts import render, redirect,get_object_or_404
 
@@ -54,13 +57,14 @@ def signup_view(request):
 
     return render(request, 'clients/signup.html')
 def login_view(request):
+    logger = logging.getLogger(__name__)
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
 
         try:
-            user = CustomUser.objects.get(email=email)  # Use CustomUser instead of User
-            print(f"User found with email: {user.username}")
+            user = CustomUser.objects.get(email=email)  
+            logger.info(f"User found with email: {user.username}")# Use CustomUser instead of User
         except CustomUser.DoesNotExist:
             messages.error(request, "Invalid email or password.")
             return redirect('login')
