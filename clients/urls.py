@@ -20,6 +20,7 @@ urlpatterns = [
      path("register_business", buisness.views.register_business, name="business_registration"),
      path("signup", views.signup_view, name="signup"),
      path("login/", views.login_view, name="login"),
+     path("reset_password/", views.reset_password, name="forget_pswrd"),
      path("logout", auth_views.LogoutView.as_view(), name="logout"),
      
      path('businessplan/<int:pk>/',views.businessplan,name='businessplan'),

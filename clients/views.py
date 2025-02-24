@@ -89,6 +89,29 @@ def login_view(request):
             messages.error(request, "Invalid email or password.")
             return redirect('login')
     return render(request, 'clients/login.html')
+@login_required
+def reset_password(request):
+    if request.method == 'POST':
+        # Get the form data
+        password = request.POST.get('password')
+        password2 = request.POST.get('password2')
+        
+        if password != password2:
+            messages.error(request, "Passwords do not match.")
+            return render(request, 'clients/forgotpassword.html')
+
+        # Update the user's password
+        try:
+            user = request.user
+            user.set_password(password)
+            user.save()
+            messages.success(request, "Password has been updated successfully.")
+            return redirect('login')  # Redirect to login page after password is changed
+        except Exception as e:
+            messages.error(request, "There was an error resetting your password. Please try again.")
+            return render(request, 'clients/forgotpassword.html')
+    
+    return render(request, 'clients/forgotpassword.html')
 def is_client(user):
     return hasattr(user, 'customer_profile') and user.customer_profile is not None
 @user_passes_test(is_client or is_service_provider, login_url='/login')

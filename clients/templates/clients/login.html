@@ -1,4 +1,4 @@
-<!-- login.html -->
+<!-- login.html 
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +25,53 @@
                 <button type="submit" class="w-full py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 focus:outline-none">Sign In</button>
             </div>
         </form>
-        <p class="mt-4 text-center text-gray-600">Don't have an account? <a href="{% url 'signup' %}" class="text-indigo-500 hover:underline">Sign Up</a></p>
+        <p class="mt-4 text-center text-gray-600">Don't have an account? <a href="{% url 'signup' %}" class="text-indigo-500 hover:underline">Create an account</a></p>
+        <p class="mt-4 text-center text-gray-600"><a href="{% url 'forget_pswrd' %}" class="text-indigo-500 hover:underline">Forgot password</a></p>
     </div>
 </body>
 </html>
 
+-->
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-sm bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-semibold text-center text-gray-800">Sign In</h2>
+        
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="mb-4">
+                {% for message in messages %}
+                    <div class="text-red-500 text-sm">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <form action="{% url 'login' %}" method="POST" class="mt-4 space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="email" class="block text-gray-600">Email:</label>
+                <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500">
+            </div>
+            <div>
+                <label for="password" class="block text-gray-600">Password:</label>
+                <input type="password" id="password" name="password" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500">
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="w-full py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 focus:outline-none">Sign In</button>
+            </div>
+        </form>
+        <p class="mt-4 text-center text-gray-600">Don't have an account? <a href="{% url 'signup' %}" class="text-indigo-500 hover:underline">Sign Up</a></p>
+        <p class="mt-4 text-center text-gray-600">Forgot password? <a href="{% url 'forget_pswrd' %}" class="text-indigo-500 hover:underline">Reset password</a></p>
+    </div>
+</body>
+</html>
 
