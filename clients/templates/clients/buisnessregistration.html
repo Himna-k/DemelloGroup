@@ -8,10 +8,17 @@
                 <button class="py-2 px-8 bg-green-200 rounded" id="tab2-btn">Business Status</button>
                 <button class="py-2 px-8 bg-green-200 rounded"id="tab3-btn">Business Credit</button>
             </div>
-
+            {% if messages %}
+            <div class="mb-4">
+                {% for message in messages %}
+                    <div class="text-red-500 text-sm">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
             <!-- Step 1: Business Info Form -->
             <form action="{% url 'business_registration' %}" method="POST" class="space-y-6">
                 {% csrf_token %}
+
                 <!-- Tab 1 - Business Info -->
                 <div id="tab1" class="tab-content">
                     {% include "clients/register_info.html" %}
