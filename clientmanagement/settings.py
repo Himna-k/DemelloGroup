@@ -56,7 +56,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'django_browser_reload.middleware.BrowserReloadMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    # 'clientmanagement.middleware.RedirectBasedOnProfileMiddleware'
 ]
 
 ROOT_URLCONF = "clientmanagement.urls"

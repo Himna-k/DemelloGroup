@@ -466,6 +466,62 @@ def business_assets(request, pk):
     # Handle form submission
     if request.method == "POST":
         print("Received POST data from agency page:", request.POST)
+
+        # Fetch values from form submission
+        business_plan = request.POST.get("business_plan") == "Yes"
+        market_value_real_estate = request.POST.get("property_value") or 0
+        owed_against_real_estate = request.POST.get("owed_against_real_estate") or 0
+        real_estate_secured_note_payment = request.POST.get("real_estate_secured_note_payment") or 0
+        structured_settlement_payment = request.POST.get("structured_settlement_payment") or 0
+        ira_401k_value = request.POST.get("ira_401k_value") or 0
+        outstanding_invoices = request.POST.get("outstanding_invoices") or 0
+        existing_purchase_orders = request.POST.get("existing_purchase_orders") or 0
+        equipment_owned_value = request.POST.get("equipment_owned_value") or 0
+
+        # Update business plan status and asset fields
+        business.update_business_plan(business_plan)
+        business.market_value_real_estate = market_value_real_estate
+        business.owed_against_real_estate = owed_against_real_estate
+        business.real_estate_secured_note_payment = real_estate_secured_note_payment
+        business.structured_settlement_payment = structured_settlement_payment
+        business.ira_401k_value = ira_401k_value
+        business.outstanding_invoices = outstanding_invoices
+        business.existing_purchase_orders = existing_purchase_orders
+        business.equipment_owned_value = equipment_owned_value
+
+        # Save updated business instance
+        business.save()
+        business.refresh_from_db()
+
+        return redirect("business", business.pk)  
+
+    # Render the form with the current business data
+    return render(request, "clients/LenderCompilance/GettingApproved/BuisnessAssets.html", {
+        "business": business,
+        'entity_compliant': business.entity_compliant() if business else False,
+        'location_compliant': business.location_compliant() if business else False,
+        'phones_compliant': business.phone_compilant() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'price_choices': PRICE_LISTS,
+        'asset_compliance': business.asset_compliance() if business else False,
+        
+    })
+
+
+@user_passes_test(is_client)
+@login_required
+def corponlyfacts(request, pk):
+    # Get the business instance for the logged-in user by primary key (pk)
+    business = get_object_or_404(Business, pk=pk, user=request.user)
+
+    # Handle form submission
+    if request.method == "POST":
+        print("Received POST data from agency page:", request.POST)
         # Fetch value from form submission
         business_plan = request.POST.get("business_plan") == "Yes"
         # Update and save business plan status
@@ -473,7 +529,7 @@ def business_assets(request, pk):
         business.refresh_from_db()
         return redirect("business",business.pk)  
     
-    return render(request, "clients/LenderCompilance/GettingApproved/BuisnessAssets.html", {
+    return render(request, "clients/LenderCompilance/GettingApproved/CorpOnlyFacts.html", {
         "business": business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
@@ -484,6 +540,5 @@ def business_assets(request, pk):
         'agencies_compliant':business.agencies_compilance() if business else False,
         'is_email_free': business.is_business_email_free() if business else True,
         'has_business_plan':business.has_business_plan()if business else False,
-        'price_choices':PRICE_LISTS
         
     })

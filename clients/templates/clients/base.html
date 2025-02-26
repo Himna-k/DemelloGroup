@@ -173,9 +173,9 @@
                 </li>
                 <li class="flex items-center">
                   <a href="{% url 'business_assets' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
-                      Business Location
+                      Business Assets
                   </a>
-                  {% if location_compliant %}
+                  {% if asset_compliance %}
                       <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
                   {% else %}
                       <span class="text-red-500 dark:text-red-400 ml-2">✘</span>
@@ -183,8 +183,8 @@
                 </li>
               
                 <li class="flex items-center">
-                  <a href="{% url 'phones' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
-                    Phones&411
+                  <a href="{% url 'corponlyfacts' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
+                    Corp Only Facts
                   </a>
                   {% if phones_compliant %}
                     <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
@@ -194,7 +194,7 @@
                 </li>
                 <li class="flex items-center">
                   <a href="{% url 'website' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
-                    websites
+                    Your Bank Rating
                   </a>
                   {% if site_compliant and not is_email_free %} 
                     <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
@@ -206,7 +206,7 @@
                 <!-- More items with their respective statuses -->
                 <li class="flex items-center">
                   <a href="{% url 'ein' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
-                    EIN & LICENCE
+                    Comparable Credit
                     </a>
                     {% if ein_compliant %}
                       <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
@@ -216,25 +216,11 @@
                 </li>
                 <li class="flex items-center">
                   <a href="{% url 'banking' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
-                    Business Banking
+                    CD Business Loan
                   </a>
-                  {% if banking_compliant %}
-                    <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
-                  {% else %}
-                    <span class="text-red-500 dark:text-red-400 ml-2">✘</span>
-                  {% endif %}
+                  
                 </li>
             
-                <li class="flex items-center">
-                  <a href="{% url 'agencies' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
-                    Agencies & NAICS
-                    </a>
-                    {% if agencies_compliant %}
-                    <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
-                    {% else %}
-                    <span class="text-red-500 dark:text-red-400 ml-2">✘</span>
-                    {% endif %}
-                </li>
               </ul>
               {% else %}
                 <!-- Display a message or an inactive state if business is not registered -->

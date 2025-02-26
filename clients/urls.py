@@ -24,5 +24,6 @@ urlpatterns = [
      path("logout", auth_views.LogoutView.as_view(), name="logout"),
      
      path('businessplan/<int:pk>/',views.businessplan,name='businessplan'),
-     path("businessassets/<int:pk>/",views.business_assets,name='business_assets')
+     path("businessassets/<int:pk>/",views.business_assets,name='business_assets'),
+     path("corponlyfacts/<int:pk>/",views.corponlyfacts,name='corponlyfacts')
 ]

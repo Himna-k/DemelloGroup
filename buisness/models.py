@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from . choices import STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS
+from . choices import PRICE_LISTS,STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS
 class Business(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="businesses")
     
@@ -71,6 +71,23 @@ class Business(models.Model):
     directory_assistance=models.BooleanField(default=False)
     
     business_plan=models.BooleanField(default=False)
+    
+    # --- New Asset Fields ---
+    # Residential Real Estate
+    own_residential_real_estate = models.BooleanField(default=False, verbose_name="Do the owners own residential real estate?")
+    market_value_real_estate = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Current market value of the property")
+    owed_against_real_estate = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Currently owed against the property")
+
+    # Income from Notes and Settlements
+    real_estate_secured_note_payment = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Amount of monthly payment for Real Estate Secured Note(s)")
+    structured_settlement_payment = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Amount of monthly payment for Structured Settlement(s)")
+
+    # Investments and Business Assets
+    ira_401k_value = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of IRA & 401K investments")
+    outstanding_invoices = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Amount of outstanding invoices with customers")
+    existing_purchase_orders = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Current amount of existing purchase orders")
+    equipment_owned_value = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
+
     # Compliance check method for Entity and Filings section
     def is_business_email_free(self):
         if self.business_email:
@@ -79,19 +96,6 @@ class Business(models.Model):
         return False
     def entity_compliant(self):
         return bool(self.business_type and self.state and self.trademark_verified and self.good_standing)
-
-
-    def location_compliant(self):
-        return bool(
-            self.business_legal_name and
-            self.first_name and
-            self.last_name and
-            self.primary_contact_title and
-            self.phone and
-            self.address and
-            self.city and
-            self.zip_code
-        )
     def location_compliant(self):
         return bool(
             self.business_legal_name and
@@ -124,6 +128,7 @@ class Business(models.Model):
             self.account_linked and
             self.establish_merchant_account
         )
+    
     def agencies_compilance(self):
         return bool(
             self.directory_assistance and
@@ -136,6 +141,11 @@ class Business(models.Model):
     def has_business_plan(self):
         return bool(
             self.business_plan
+        )
+        
+    def asset_compliance(self):
+        return bool(
+        self.own_residential_real_estate 
         )
     def update_entity_info(self, entity_type, state, trademark_verified, good_standing):
         # Only update fields if they have a valid (non-None) value
@@ -222,6 +232,8 @@ class Business(models.Model):
         """Updates the business_plan field and saves the model."""
         self.business_plan = business_plan
         self.save()
+    
+    
 
     def __str__(self):
         return f"{self.business_legal_name} (Owned by {self.user.username})"
