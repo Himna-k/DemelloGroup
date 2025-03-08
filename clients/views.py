@@ -136,15 +136,20 @@ def clientindex(request):
         'amount_choices':AMOUNT_CHOICES,
         'credit_choices':CREDIT_CHOICES,
         'income_choices':PERSONAL_INCOME_CHOICES,
+        
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
         'business': business,
-        'is_email_free': business.is_business_email_free() if business else True
+        
     })
 @user_passes_test(is_client)
 @login_required
@@ -168,15 +173,19 @@ def CompleteCompilance(request):
         'amount_choices':AMOUNT_CHOICES,
         'credit_choices':CREDIT_CHOICES,
         'income_choices':PERSONAL_INCOME_CHOICES,
+        
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
         'business': business,
-        'is_email_free': business.is_business_email_free() if business else True
     })
 @user_passes_test(is_client)
 @login_required
@@ -199,16 +208,21 @@ def entityandfilings(request, pk):
     
     return render(request, "clients/LenderCompilance/CompleteCompilance/Entity &Filings.html", {
         "business": business,
+        
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
         "state_choices": STATE_CHOICES,
         "buisness_types": ENTITY_CHOICES,
-        'is_email_free': business.is_business_email_free() if business else True
+        
     })
 @user_passes_test(is_client)
 @login_required
@@ -238,13 +252,17 @@ def buisnesslocation(request, pk):
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
         'title_choices':TITLE_CHOICES,
         'state_choices':STATE_CHOICES,
-        'is_email_free': business.is_business_email_free() if business else True
+        
     })
 @user_passes_test(is_client) 
 @login_required
@@ -272,10 +290,14 @@ def phones(request,pk):
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
         "state_choices": STATE_CHOICES,
         "title_choices": TITLE_CHOICES,
         'is_email_free': business.is_business_email_free() if business else True
@@ -302,15 +324,18 @@ def websites(request,pk):
 
     return render(request, 'clients/LenderCompilance/CompleteCompilance/website&mail.html', {
         'business': business,
+        
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
-        'agency_compilant':business.agencies_compilance() if business else False,
-        'is_email_free': business.is_business_email_free() if business else True
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
     })
 @user_passes_test(is_client or is_service_provider)    
 @login_required   
@@ -329,14 +354,18 @@ def ein(request,pk):
     
     return render(request, 'clients/LenderCompilance/CompleteCompilance/ein&icence.html', {
         'business': business,
+        
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
-        'is_email_free': business.is_business_email_free() if business else True
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
 
     })
     
@@ -358,11 +387,14 @@ def banking(request,pk):
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
-        'is_email_free': business.is_business_email_free() if business else True
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
 
     })
 @user_passes_test(is_client or is_service_provider)
@@ -377,14 +409,18 @@ def sos_contact_list(request,pk):
     return render(request, 'clients/LenderCompilance/CompleteCompilance/sos_contact.html', {
         'business': business,
         'sos_data':sos_data,
+        
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
-        'is_email_free': business.is_business_email_free() if business else True
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
 
     })   
 @user_passes_test(is_client or is_service_provider)
@@ -445,21 +481,83 @@ def businessplan(request, pk):
     
     return render(request, "clients/LenderCompilance/GettingApproved/Businessplan.html", {
         "business": business,
+        
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
         'is_email_free': business.is_business_email_free() if business else True,
-        'has_business_plan':business.has_business_plan()if business else False,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
         
     })
     
-@user_passes_test(is_client)
+
+@user_passes_test(is_client) 
 @login_required
 def business_assets(request, pk):
+    # Get the business instance for the logged-in user by primary key (pk)
+    business = get_object_or_404(Business, pk=pk, user=request.user)
+
+    # Handle form submission
+    if request.method == "POST":
+        # Fetch values from form submission
+        own_residential_real_estate = request.POST.get("own_residential_real_estate") == 'Yes'
+        market_value_real_estate = request.POST.get("market_value_real_estate") 
+        owed_against_real_estate = request.POST.get("owed_against_real_estate") 
+        real_estate_secured_note_payment = request.POST.get("real_estate_secured_note_payment") 
+        structured_settlement_payment = request.POST.get("structured_settlement_payment") 
+        ira_401k_value = request.POST.get("ira_401k_value") 
+        outstanding_invoices = request.POST.get("outstanding_invoices") 
+        existing_purchase_orders = request.POST.get("existing_purchase_orders") 
+        equipment_owned_value = request.POST.get("equipment_owned_value") 
+        
+        # Update the business instance with new asset data
+        business.update_assets(
+            own_residential_real_estate,
+            market_value_real_estate,
+            owed_against_real_estate,
+            real_estate_secured_note_payment,
+            structured_settlement_payment,
+            ira_401k_value,
+            outstanding_invoices,
+            existing_purchase_orders,
+            equipment_owned_value
+        )
+        
+        
+
+        # Redirect to business page after saving
+        return redirect("corponlyfacts", business.pk)  
+
+    # Render the form with the current business data
+    return render(request, "clients/LenderCompilance/GettingApproved/BuisnessAssets.html", {
+        "business": business,
+        "price_choices": PRICE_LISTS,  # Assuming you have a constant PRICE_LISTS or equivalent
+        'entity_compliant': business.entity_compliant() if business else False,
+        'location_compliant': business.location_compliant() if business else False,
+        'phones_compliant': business.phone_compilant() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts': business.corp_compliance() if business else False,
+    })
+
+
+
+
+# Assuming `is_client` is a custom decorator that checks if the user is a client
+@user_passes_test(is_client) 
+@login_required
+def corponlyfacts(request, pk):
     # Get the business instance for the logged-in user by primary key (pk)
     business = get_object_or_404(Business, pk=pk, user=request.user)
 
@@ -468,35 +566,19 @@ def business_assets(request, pk):
         print("Received POST data from agency page:", request.POST)
 
         # Fetch values from form submission
-        business_plan = request.POST.get("business_plan") == "Yes"
-        market_value_real_estate = request.POST.get("property_value") or 0
-        owed_against_real_estate = request.POST.get("owed_against_real_estate") or 0
-        real_estate_secured_note_payment = request.POST.get("real_estate_secured_note_payment") or 0
-        structured_settlement_payment = request.POST.get("structured_settlement_payment") or 0
-        ira_401k_value = request.POST.get("ira_401k_value") or 0
-        outstanding_invoices = request.POST.get("outstanding_invoices") or 0
-        existing_purchase_orders = request.POST.get("existing_purchase_orders") or 0
-        equipment_owned_value = request.POST.get("equipment_owned_value") or 0
+        experian_score = request.POST.get("experian")
+        transunion_score = request.POST.get("transUnion")
+        equifax_score = request.POST.get("equifax")
 
-        # Update business plan status and asset fields
-        business.update_business_plan(business_plan)
-        business.market_value_real_estate = market_value_real_estate
-        business.owed_against_real_estate = owed_against_real_estate
-        business.real_estate_secured_note_payment = real_estate_secured_note_payment
-        business.structured_settlement_payment = structured_settlement_payment
-        business.ira_401k_value = ira_401k_value
-        business.outstanding_invoices = outstanding_invoices
-        business.existing_purchase_orders = existing_purchase_orders
-        business.equipment_owned_value = equipment_owned_value
-
-        # Save updated business instance
-        business.save()
+        business.update_corp_only_facts(experian_score,transunion_score,equifax_score)
+        # Optionally, you can call refresh_from_db() to reload the object from the database
         business.refresh_from_db()
 
-        return redirect("business", business.pk)  
+        # Redirect to the business page after successful submission
+        return redirect("bankrating", business.pk)  
 
-    # Render the form with the current business data
-    return render(request, "clients/LenderCompilance/GettingApproved/BuisnessAssets.html", {
+    # Render the page with the current business data
+    return render(request, "clients/LenderCompilance/GettingApproved/CorpOnlyFacts.html", {
         "business": business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
@@ -507,38 +589,115 @@ def business_assets(request, pk):
         'agencies_compliant': business.agencies_compilance() if business else False,
         'is_email_free': business.is_business_email_free() if business else True,
         'has_business_plan': business.has_business_plan() if business else False,
-        'price_choices': PRICE_LISTS,
         'asset_compliance': business.asset_compliance() if business else False,
-        
+        'has_corp_only_facts':business.corp_compliance() if business else False,
     })
-
-
-@user_passes_test(is_client)
+# Assuming `is_client` is a custom decorator that checks if the user is a client
+@user_passes_test(is_client) 
 @login_required
-def corponlyfacts(request, pk):
+def Bank_rating(request, pk):
     # Get the business instance for the logged-in user by primary key (pk)
     business = get_object_or_404(Business, pk=pk, user=request.user)
 
     # Handle form submission
     if request.method == "POST":
         print("Received POST data from agency page:", request.POST)
-        # Fetch value from form submission
-        business_plan = request.POST.get("business_plan") == "Yes"
-        # Update and save business plan status
-        business.update_business_plan(business_plan)
+
+        # Fetch values from form submission
+        last_balance = request.POST.get("last_balance")
+        
+        business.update_bankrating(last_balance)
+        # Optionally, you can call refresh_from_db() to reload the object from the database
         business.refresh_from_db()
-        return redirect("business",business.pk)  
-    
-    return render(request, "clients/LenderCompilance/GettingApproved/CorpOnlyFacts.html", {
+
+        # Redirect to the business page after successful submission
+        return redirect("comparablecredit", business.pk)  
+
+    # Render the page with the current business data
+    return render(request, "clients/LenderCompilance/GettingApproved/YourBankRating.html", {
         "business": business,
+        'price_choices': PRICE_LISTS,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant':business.website_compilant() if business else False,
-        'ein_compliant':business.ein_compliant() if business else False,
-        'banking_compliant':business.banking_compilant() if business else False,
-        'agencies_compliant':business.agencies_compilance() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
         'is_email_free': business.is_business_email_free() if business else True,
-        'has_business_plan':business.has_business_plan()if business else False,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
+    })
+@user_passes_test(is_client) 
+@login_required
+def Cd_loan(request, pk):
+    # Get the business instance for the logged-in user by primary key (pk)
+    business = get_object_or_404(Business, pk=pk, user=request.user)
+
+    # Handle form submission
+    if request.method == "POST":
+        print("Received POST data from agency page:", request.POST)
+
+        # Fetch values from form submission
+        last_balance = request.POST.get("last_balance")
         
+        business.update_bankrating(last_balance)
+        # Optionally, you can call refresh_from_db() to reload the object from the database
+        business.refresh_from_db()
+
+        # Redirect to the business page after successful submission
+        return redirect("clientindex", business.pk)  
+
+    # Render the page with the current business data
+    return render(request, "clients/LenderCompilance/GettingApproved/CDBusinessLoan.html", {
+        "business": business,
+        'price_choices': PRICE_LISTS,
+        'entity_compliant': business.entity_compliant() if business else False,
+        'location_compliant': business.location_compliant() if business else False,
+        'phones_compliant': business.phone_compilant() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
+    })
+@user_passes_test(is_client) 
+@login_required
+def Comparable_credit(request, pk):
+    # Get the business instance for the logged-in user by primary key (pk)
+    business = get_object_or_404(Business, pk=pk, user=request.user)
+
+    # Handle form submission
+    if request.method == "POST":
+        print("Received POST data from agency page:", request.POST)
+
+        # Fetch values from form submission
+        last_balance = request.POST.get("last_balance")
+        
+        business.update_bankrating(last_balance)
+        # Optionally, you can call refresh_from_db() to reload the object from the database
+        business.refresh_from_db()
+
+        # Redirect to the business page after successful submission
+        return redirect("businessloan", business.pk)  
+
+    # Render the page with the current business data
+    return render(request, "clients/LenderCompilance/GettingApproved/ComparableCredits.html", {
+        "business": business,
+        'price_choices': PRICE_LISTS,
+        'entity_compliant': business.entity_compliant() if business else False,
+        'location_compliant': business.location_compliant() if business else False,
+        'phones_compliant': business.phone_compilant() if business else False,
+        'site_compliant': business.website_compilant() if business else False,
+        'ein_compliant': business.ein_compliant() if business else False,
+        'banking_compliant': business.banking_compilant() if business else False,
+        'agencies_compliant': business.agencies_compilance() if business else False,
+        'is_email_free': business.is_business_email_free() if business else True,
+        'has_business_plan': business.has_business_plan() if business else False,
+        'asset_compliance': business.asset_compliance() if business else False,
+        'has_corp_only_facts':business.corp_compliance() if business else False,
     })

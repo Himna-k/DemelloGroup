@@ -87,7 +87,8 @@ class Business(models.Model):
     outstanding_invoices = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Amount of outstanding invoices with customers")
     existing_purchase_orders = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Current amount of existing purchase orders")
     equipment_owned_value = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
-
+    
+    last_balance=models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
     # Compliance check method for Entity and Filings section
     def is_business_email_free(self):
         if self.business_email:
@@ -146,6 +147,13 @@ class Business(models.Model):
     def asset_compliance(self):
         return bool(
         self.own_residential_real_estate 
+        )
+        
+    def corp_compliance(self):
+        return bool(
+        self.experian and
+        self.transunion and 
+        self.equifax
         )
     def update_entity_info(self, entity_type, state, trademark_verified, good_standing):
         # Only update fields if they have a valid (non-None) value
@@ -232,8 +240,49 @@ class Business(models.Model):
         """Updates the business_plan field and saves the model."""
         self.business_plan = business_plan
         self.save()
+    def update_assets(self,
+                      own_residential_real_estate,
+                      market_value_real_estate,
+                      owed_against_real_estate,
+                      real_estate_secured_note_payment,
+                      structured_settlement_payment,
+                      ira_401k_value,outstanding_invoices,
+                      existing_purchase_orders,
+                      equipment_owned_value):
+        # Update business plan status and asset fields
+        self.own_residential_real_estate =own_residential_real_estate 
+        if market_value_real_estate:
+            self.market_value_real_estate = market_value_real_estate
+        if owed_against_real_estate:
+            self.owed_against_real_estate = owed_against_real_estate
+        if real_estate_secured_note_payment:
+            self.real_estate_secured_note_payment = real_estate_secured_note_payment
+        if structured_settlement_payment:
+            self.structured_settlement_payment = structured_settlement_payment
+        if ira_401k_value:
+            self.ira_401k_value = ira_401k_value
+        if outstanding_invoices:
+            self.outstanding_invoices = outstanding_invoices
+        if existing_purchase_orders:
+            self.existing_purchase_orders = existing_purchase_orders
+        if equipment_owned_value:
+            self.equipment_owned_value = equipment_owned_value
+        # Save updated business instance
+        self.save()
     
-    
+    def update_corp_only_facts(self,experian_score,transunion_score,equifax_score):
+         # Update credit scores in the business instance
+        if experian_score:
+            self.experian = experian_score
+        if transunion_score:
+            self.transunion = transunion_score
+        if equifax_score:
+            self.equifax = equifax_score
 
+        # Save the updated business instance
+        self.save()
+    def update_bankrating(self,last_balance):
+        if last_balance:
+            self.last_balance=last_balance
     def __str__(self):
         return f"{self.business_legal_name} (Owned by {self.user.username})"

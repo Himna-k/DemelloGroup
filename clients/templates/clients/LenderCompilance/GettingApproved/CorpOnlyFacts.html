@@ -88,15 +88,43 @@
   <!-- Form Section -->
   
 
-      <!-- Save Button -->
-      .<div class="flex justify-center space-x-4">
-        <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+      <!-- Form Section -->
+<!-- Form Section -->
+<form method="POST" action="{% url 'corponlyfacts' business.pk %}">
+  {% csrf_token %}
+  <div class="p-6 bg-white">
+
+    <!-- Credit Scores Section -->
+    <div class="mb-4">
+      <label for="experian" class="block text-sm font-medium text-gray-700">Experian</label>
+      <input type="text" id="experian" name="experian" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Enter Experian score">
+    </div>
+
+    <div class="mb-4">
+      <label for="transUnion" class="block text-sm font-medium text-gray-700">TransUnion</label>
+      <input type="text" id="transUnion" name="transUnion" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Enter TransUnion score">
+    </div>
+
+    <div class="mb-4">
+      <label for="equifax" class="block text-sm font-medium text-gray-700">EquiFax</label>
+      <input type="text" id="equifax" name="equifax" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Enter Equifax score">
+    </div>
+
+    
+  </div>
+
+  <!-- Save Button -->
+  <div class="flex justify-center space-x-4">
+    <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
     <a href="{% url 'clientindex' %}" 
       class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
       Dashboard
     </a>
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
-      </div>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+  </div>
+
+</form>
+
    
 </div>
 

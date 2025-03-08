@@ -25,5 +25,8 @@ urlpatterns = [
      
      path('businessplan/<int:pk>/',views.businessplan,name='businessplan'),
      path("businessassets/<int:pk>/",views.business_assets,name='business_assets'),
-     path("corponlyfacts/<int:pk>/",views.corponlyfacts,name='corponlyfacts')
+     path("corponlyfacts/<int:pk>/",views.corponlyfacts,name='corponlyfacts'),
+     path("bankrating/<int:pk>/",views.Bank_rating,name='bankrating'),
+     path("businessloan/<int:pk>/",views.Cd_loan,name='businessloan'),
+     path("comparablecredit/<int:pk>/",views.Comparable_credit,name='comparablecredit'),
 ]

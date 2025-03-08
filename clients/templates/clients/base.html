@@ -165,7 +165,7 @@
                   <a href="{% url 'businessplan' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
                       Business Plan
                   </a>
-                  {% if business.has_business_plan %}
+                  {% if has_business_plan %}
                       <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
                   {% else %}
                       <span class="text-red-500 dark:text-red-400 ml-2">✘</span>
@@ -186,17 +186,17 @@
                   <a href="{% url 'corponlyfacts' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
                     Corp Only Facts
                   </a>
-                  {% if phones_compliant %}
+                  {% if has_corp_only_facts %}
                     <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
                   {% else %}
                     <span class="text-red-500 dark:text-red-400 ml-2">✘</span>
                   {% endif %}
                 </li>
                 <li class="flex items-center">
-                  <a href="{% url 'website' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
+                  <a href="{% url 'bankrating' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
                     Your Bank Rating
                   </a>
-                  {% if site_compliant and not is_email_free %} 
+                  {% if business.last_balance%} 
                     <span class="text-green-500 dark:text-green-400 ml-2">✔</span>
                   {% else %}
                     <span class="text-red-500 dark:text-red-400 ml-2">✘</span>
@@ -205,7 +205,7 @@
                 </li>
                 <!-- More items with their respective statuses -->
                 <li class="flex items-center">
-                  <a href="{% url 'ein' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
+                  <a href="{% url 'comparablecredit' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
                     Comparable Credit
                     </a>
                     {% if ein_compliant %}
@@ -215,7 +215,7 @@
                     {% endif %}
                 </li>
                 <li class="flex items-center">
-                  <a href="{% url 'banking' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
+                  <a href="{% url 'businessloan' business.pk %}" class="block flex-grow text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
                     CD Business Loan
                   </a>
                   

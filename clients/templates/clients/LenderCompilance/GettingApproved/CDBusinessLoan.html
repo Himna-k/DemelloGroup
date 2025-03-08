@@ -1,74 +1,112 @@
 {% extends "clients/base.html" %}
-{% block title %}Entity and Filings{% endblock title %}
+{% load static %}
+{% block title %}CD Business loan{% endblock title %}
 {% block content %}
 
-    <!-- Form Container -->
-    <div class="container px-6 mx-auto grid">
-        <!-- Center-Aligned H2 with Smaller Font -->
-        <h2 class="text-center text-base font-semibold text-gray-700 dark:text-gray-300 mb-6">
-            Please enter your current business entity status and the state where it was formed:
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Banks and Credit Unions Known To Do Secured Lending</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">The banks and credit unions on the list below are doing secured business lending</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/loan_headder.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+  <p class="text-gray-800 text-base mb-4">Before you apply be sure to visit their website and talk to a loan officer for the specifics of what they require.</p>
+  <h2 class="text-xl font-semibold text-black mb-4">Compliance Item - Bank Rating, A Minimum Low 5 Is Critical</h2>
+
+   
+    <div class="border border-blue-300 rounded mb-4 p-4">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Organizations Known To Do Secured Business Lending
+      </h2>
+      <p class="text-gray-800 text-base mb-4">The list below is not intended to be a complete list of those banks and credit unions doing secured business lending. In fact most banks and credit unions that do business lending will make secured business loans if you ask them but they do not advertise that fact.</p>
+        <p class="text-gray-800 text-base mb-4">The organizations listed below are openly advertising their secured business lending products making your time more effective and your approval more likely.</p>
+      <div class=" mb-2 bg-white">
+        <table class="min-w-full table-auto">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="px-4 py-2 text-sm font-semibold text-gray-700">Banks</th>
+                <th class="px-4 py-2 text-sm font-semibold text-gray-70"></th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white">
+                <td class="px-4 py-2 text-sm text-gray-700">Bank of America</td>
+                <td class="px-4 py-2 text-sm text-gray-700">Secured Term Loan from $25,000 to $250,000, up to 5 year terms, and 3.5% interest rate.</td>
+                </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2 text-sm text-gray-700">Mid 3</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$400 - $699</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-4 py-2 text-sm text-gray-700">High 3</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$700 - $999</td>
+                </tr>
+            </tbody>
+          </table>
+          
+          </div>
+    </div>
+    <h2 class="text-xl font-semibold text-black mb-4">Bank Verification - Lenders Learn Much More About Your Business</h2>
+    <div class="border border-blue-300 rounded mb-4 p-4">
+        <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+            In The Digital Age Every Lender Can See Your Business Banking Activity Via A Bank Verification
         </h2>
-    
-        <!-- Business Entity Type -->
-        <div class="flex items-center mb-4">
-            <label for="entityType" class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Business entity/structure type:</label>
-            <select id="entityType" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring focus:ring-blue-200 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                <option value="LLC">LLC</option>
-                <option value="Corporation">Corporation</option>
-                <option value="Sole Proprietorship">Sole Proprietorship</option>
-                <option value="Partnership">Partnership</option>
-            </select>
-        </div>
-    
-        <!-- State Selection -->
-        <div class="flex items-center mb-4">
-            <label for="state" class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Select the State where your business was formed:</label>
-            <select id="state" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring focus:ring-blue-200 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                <option value="New York">New York</option>
-                <option value="California">California</option>
-                <option value="Texas">Texas</option>
-                <option value="Florida">Florida</option>
-            </select>
-        </div>
-    
-        <!-- Trademark Infringement Verification -->
-        <div class="flex items-center mb-4">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Have you verified there are no trademark infringements?</span>
-            <div class="flex space-x-4 w-2/3">
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="trademark" value="Yes" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    Yes
-                </label>
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="trademark" value="No" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    No
-                </label>
+        <p class="text-gray-800 text-base mb-4">
+            When you provide your business bank account routing and account number lenders and credit providers can do a "Bank Verification" where they can then see:</p>
+            <ul class="list-decimal list-inside  text-gray-800 text-base pl-5">
+                <li>A 36 month summary of deposits, average daily balances, and month ending balances</li>
+                <li>Current balance status of the submitted bank routing and account numbers</li>
+                <li>First date opened and last activity dates of the business bank account</li>
+                <li>Bank ratings of that account and other accounts associated with the company</li>
+                <li>Dates and amounts of all NSF returned debits and checks on the account</li>
+                <li>Verification of all account signers including; Name, SSN, and Driver’s License</li>
+            </ul>
             </div>
-        </div>
-    
-        <!-- Good Standing Verification -->
-        <div class="flex items-center mb-6">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Have you verified that your entity is in good standing?</span>
-            <div class="flex space-x-4 w-2/3">
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="goodStanding" value="Yes" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    Yes
-                </label>
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="goodStanding" value="No" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    No
-                </label>
-            </div>
-        </div>
-    
-        <!-- Center-Aligned Buttons -->
-        <div class="flex justify-center space-x-4">
-            <button class="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-300 dark:hover:bg-gray-500"><< Back</button>
-            <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-600">Dashboard</button>
-            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
-        </div>
-    </div>   
+            <p class="text-gray-800 text-base mb-4">The bottom line is that in today's digital age lenders and credit providers of all kinds can instantly access data on your business banking activity. This means they can see how much money has gone through your business bank account each day, month, year and how much of that money stuck to you.</p>
+            <p class="text-gray-800 text-base mb-4">Your monthly revenue and your average daily bank balances have become an extremely critical part of your business getting approved for no personal guarantee loans and credit lines. It is also the single most important factor in your business showing it's ability to debt service.</p>
+            <h3 class="text-md font-bold "> How To Get At Least A Low 5</h3>
+            <p class="text-gray-800 text-base mb-4">If you don't have the $10,000 required for the low 5 rating, consider borrowing it from friends or family. Maybe pull it off personal credit cards or out of the equity in your home. If you borrow it from friends or family, explain to them you will not be "using" the money, but that it will just be sitting in your business checking account. Tell them you can return it to them in six (6) months. Maybe offer to pay interest. We will be looking at other creative ways to get the money you need.</p>
+            <p class="text-gray-800 text-base mb-4">Don't Have $10,000? Don't Worry ... Bank ratings are totally separate from building business credit and in no way affect your ability to build strong scores. So if you don't have the $10,000, or can't get access to the $10,000 to secure a Low 5 Bank Rating, it will have no impact what-so-ever on your ability to build strong business credit scores. However, bank ratings can definitely have an impact on your ability to secure larger cash type business loans and credit lines in the future. So when your business starts making money remember to keep your daily balance above $10,000 in order to maintain at least a Low 5 Rating.</p>
+        
+
+  
+  
+<!-- Form Section -->
+<form method="POST" action="{% url 'businessloan' business.pk %}">
+  {% csrf_token %}
+  <div class="p-6 bg-white">
+    <h2 class="text-center text-base font-semibold text-gray-700 mb-6">
+        Building Your Business Bank Account Ratings:
+    </h2>
+    <!-- Credit Scores Section -->
+    <div class="mb-4">
+      <label for="last_balance" class="block text-sm font-medium text-gray-700">Balance you have maintained for last 3 months?</label>
+      <select id="last_balance" name="last_balance" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+        {% for code, price_choice in price_choices %}
+            <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+        {% endfor %}
+    </select>
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <div class="flex justify-center space-x-4">
+    <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+    <a href="{% url 'clientindex' %}" 
+      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+      Dashboard
+    </a>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+  </div>
+
+</form>
+
+   
+</div>
 
 
 {% endblock content %}
-

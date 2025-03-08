@@ -1,74 +1,138 @@
 {% extends "clients/base.html" %}
-{% block title %}Entity and Filings{% endblock title %}
+{% load static %}
+{% block title %}Bank rating{% endblock title %}
 {% block content %}
 
-    <!-- Form Container -->
-    <div class="container px-6 mx-auto grid">
-        <!-- Center-Aligned H2 with Smaller Font -->
-        <h2 class="text-center text-base font-semibold text-gray-700 dark:text-gray-300 mb-6">
-            Please enter your current business entity status and the state where it was formed:
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Bank Ratings Are Important to Getting Approved</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">Your business bank account rating is key part of becoming bankable</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/Bankrating_headder.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+  <p class="text-gray-800 text-base mb-4">Business bank ratings indicates the size of the loan your business has the ability to debt service.</p>
+  <p class="text-gray-800 text-base mb-4">Your business bank account reflects how you manage your cash flow. Lenders want to know that your business cash flow is capable of handling the business debt and expenses on a consistent basis. Bank accounts with low average daily balances, or that show NSF returned checks, can get your business loan applications declined.</p>
+  <p class="text-gray-800 text-base mb-4">Your "Bank Rating" is based on your average daily minimum balance over the last 3 months. Bank ratings cannot be created in less than 3 months and are what lenders use to determine your business's ability to debt service. Having a "Low 3" bank rating will indicate to a lender that at any point in the last 90 days your business had only $100 to $300 available to pay any debts. Therefore if you are seeking a loan that requires a $1,000 monthly payment then lenders will decline you as they can see you have shown no ability to pay that debt. Lenders have the ability to check your bank rating in seconds.</p>
+  <h2 class="text-xl font-semibold text-black mb-4">Compliance Item - Bank Rating, A Minimum Low 5 Is Critical</h2>
+
+   
+    <div class="border border-blue-300 rounded mb-4 p-4">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        Compliance Item Fix - What Does A Low 5 Bank Rating Mean?
+      </h2>
+      <h3 class="text-md font-bold "> Bank Ratings Consist of Three Components</h3>
+      <div class=" mb-2 bg-white">
+        <ol class="list-decimal list-inside  text-gray-800 text-base ">
+            <li>The first component is your balance rating. This rating is your average minimum daily balance maintained in your account over the last three (3) month period. Maintaining at least $10,000 will rate as "Low 5", $5,000 rates as "Mid 4", $999 rates as "High 3", and so on.  You need to maintain a minimum "Low 5" bank rating ($10,000) for at least 3 months. Unfortunately, without at least a "low 5" rating, most lenders will assume your business has little ability to repay.</li>
+            <li>The second component is the bank rating cycle which is three (3) months. You'll want to have at least a "low 5" for the three months prior to applying for larger loans. This is to show lenders that your business has the ability to debt service. How much money you have going through your account each month does not matter. What does matter is how much is available each day for the last 90 days to pay debt.</li>
+            <li>
+                The third and final component has to do with how you manage the account.  NSF (bounced) checks destroy bank ratings.  From this point forward, NSF checks are something you cannot allow.
+            </li>
+            
+          </ol>
+          <p class="text-gray-800 text-base mb-4">Check your business banking general ledger checking account statements for the last three months and look at your average daily bank account balance to be able to self-calculate what lenders are seeing as your current "Bank Rating".</p>
+          <table class="min-w-full table-auto">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="px-4 py-2 text-sm font-semibold text-gray-700">Bank Rating</th>
+                <th class="px-4 py-2 text-sm font-semibold text-gray-700">Account Balance</th>
+                <th class="px-4 py-2 text-sm font-semibold text-gray-700">Bank Rating</th>
+                <th class="px-4 py-2 text-sm font-semibold text-gray-700">Account Balance</th>
+                <th class="px-4 py-2 text-sm font-semibold text-gray-700">Bank Rating</th>
+                <th class="px-4 py-2 text-sm font-semibold text-gray-700">Account Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white">
+                <td class="px-4 py-2 text-sm text-gray-700">Low 3</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$100 - $399</td>
+                <td class="px-4 py-2 text-sm text-gray-700">Low 4</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$1,000 - $3,999</td>
+                <td class="px-4 py-2 text-sm text-gray-700">Low 5</td>
+                <td class="px-4 py-2 text-sm text-gray-700 text-red-600">$10,000 - $39,999</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2 text-sm text-gray-700">Mid 3</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$400 - $699</td>
+                <td class="px-4 py-2 text-sm text-gray-700">Mid 4</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$4,000 - $6,999</td>
+                <td class="px-4 py-2 text-sm text-gray-700">Mid 5</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$40,000 - $69,999</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-4 py-2 text-sm text-gray-700">High 3</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$700 - $999</td>
+                <td class="px-4 py-2 text-sm text-gray-700">High 4</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$7,000 - $9,999</td>
+                <td class="px-4 py-2 text-sm text-gray-700">High 5</td>
+                <td class="px-4 py-2 text-sm text-gray-700">$70,000 - $99,999</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          </div>
+    </div>
+    <h2 class="text-xl font-semibold text-black mb-4">Bank Verification - Lenders Learn Much More About Your Business</h2>
+    <div class="border border-blue-300 rounded mb-4 p-4">
+        <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+            In The Digital Age Every Lender Can See Your Business Banking Activity Via A Bank Verification
         </h2>
-    
-        <!-- Business Entity Type -->
-        <div class="flex items-center mb-4">
-            <label for="entityType" class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Business entity/structure type:</label>
-            <select id="entityType" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring focus:ring-blue-200 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                <option value="LLC">LLC</option>
-                <option value="Corporation">Corporation</option>
-                <option value="Sole Proprietorship">Sole Proprietorship</option>
-                <option value="Partnership">Partnership</option>
-            </select>
-        </div>
-    
-        <!-- State Selection -->
-        <div class="flex items-center mb-4">
-            <label for="state" class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Select the State where your business was formed:</label>
-            <select id="state" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring focus:ring-blue-200 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                <option value="New York">New York</option>
-                <option value="California">California</option>
-                <option value="Texas">Texas</option>
-                <option value="Florida">Florida</option>
-            </select>
-        </div>
-    
-        <!-- Trademark Infringement Verification -->
-        <div class="flex items-center mb-4">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Have you verified there are no trademark infringements?</span>
-            <div class="flex space-x-4 w-2/3">
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="trademark" value="Yes" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    Yes
-                </label>
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="trademark" value="No" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    No
-                </label>
+        <p class="text-gray-800 text-base mb-4">
+            When you provide your business bank account routing and account number lenders and credit providers can do a "Bank Verification" where they can then see:</p>
+            <ul class="list-decimal list-inside  text-gray-800 text-base pl-5">
+                <li>A 36 month summary of deposits, average daily balances, and month ending balances</li>
+                <li>Current balance status of the submitted bank routing and account numbers</li>
+                <li>First date opened and last activity dates of the business bank account</li>
+                <li>Bank ratings of that account and other accounts associated with the company</li>
+                <li>Dates and amounts of all NSF returned debits and checks on the account</li>
+                <li>Verification of all account signers including; Name, SSN, and Driver’s License</li>
+            </ul>
             </div>
-        </div>
-    
-        <!-- Good Standing Verification -->
-        <div class="flex items-center mb-6">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Have you verified that your entity is in good standing?</span>
-            <div class="flex space-x-4 w-2/3">
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="goodStanding" value="Yes" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    Yes
-                </label>
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="goodStanding" value="No" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    No
-                </label>
-            </div>
-        </div>
-    
-        <!-- Center-Aligned Buttons -->
-        <div class="flex justify-center space-x-4">
-            <button class="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-300 dark:hover:bg-gray-500"><< Back</button>
-            <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-600">Dashboard</button>
-            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
-        </div>
-    </div>   
+            <p class="text-gray-800 text-base mb-4">The bottom line is that in today's digital age lenders and credit providers of all kinds can instantly access data on your business banking activity. This means they can see how much money has gone through your business bank account each day, month, year and how much of that money stuck to you.</p>
+            <p class="text-gray-800 text-base mb-4">Your monthly revenue and your average daily bank balances have become an extremely critical part of your business getting approved for no personal guarantee loans and credit lines. It is also the single most important factor in your business showing it's ability to debt service.</p>
+            <h3 class="text-md font-bold "> How To Get At Least A Low 5</h3>
+            <p class="text-gray-800 text-base mb-4">If you don't have the $10,000 required for the low 5 rating, consider borrowing it from friends or family. Maybe pull it off personal credit cards or out of the equity in your home. If you borrow it from friends or family, explain to them you will not be "using" the money, but that it will just be sitting in your business checking account. Tell them you can return it to them in six (6) months. Maybe offer to pay interest. We will be looking at other creative ways to get the money you need.</p>
+            <p class="text-gray-800 text-base mb-4">Don't Have $10,000? Don't Worry ... Bank ratings are totally separate from building business credit and in no way affect your ability to build strong scores. So if you don't have the $10,000, or can't get access to the $10,000 to secure a Low 5 Bank Rating, it will have no impact what-so-ever on your ability to build strong business credit scores. However, bank ratings can definitely have an impact on your ability to secure larger cash type business loans and credit lines in the future. So when your business starts making money remember to keep your daily balance above $10,000 in order to maintain at least a Low 5 Rating.</p>
+        
+
+  
+  
+<!-- Form Section -->
+<form method="POST" action="{% url 'bankrating' business.pk %}">
+  {% csrf_token %}
+  <div class="p-6 bg-white">
+    <h2 class="text-center text-base font-semibold text-gray-700 mb-6">
+        Building Your Business Bank Account Ratings:
+    </h2>
+    <!-- Credit Scores Section -->
+    <div class="mb-4">
+      <label for="last_balance" class="block text-sm font-medium text-gray-700">Balance you have maintained for last 3 months?</label>
+      <select id="last_balance" name="last_balance" class="w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+        {% for code, price_choice in price_choices %}
+            <option value="{{ code }}" {% if business.property_value == code %}selected{% endif %}>{{ price_choice }}</option>
+        {% endfor %}
+    </select>
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <div class="flex justify-center space-x-4">
+    <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+    <a href="{% url 'clientindex' %}" 
+      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+      Dashboard
+    </a>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+  </div>
+
+</form>
+
+   
+</div>
 
 
 {% endblock content %}
-
