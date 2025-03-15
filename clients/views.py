@@ -7,7 +7,7 @@ from django.conf import settings
 from django.shortcuts import render, redirect,get_object_or_404
 
 from serviceprovider.models import CustomUser  # Import your CustomUser model
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import AccountInfo, OtherInfo, CustomerProfile
@@ -89,29 +89,41 @@ def login_view(request):
             messages.error(request, "Invalid email or password.")
             return redirect('login')
     return render(request, 'clients/login.html')
-@login_required
+def logout_view(request):
+    logout(request)  # This will log out the user
+    return redirect('login') 
+
+
 def reset_password(request):
     if request.method == 'POST':
-        # Get the form data
-        password = request.POST.get('password')
-        password2 = request.POST.get('password2')
-        
-        if password != password2:
-            messages.error(request, "Passwords do not match.")
-            return render(request, 'clients/forgotpassword.html')
+        email = request.POST.get('email')
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
 
-        # Update the user's password
+        # Check if new password and confirm password match
+        if new_password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+            return redirect('reset_password')
+
         try:
-            user = request.user
-            user.set_password(password)
+            user = CustomUser.objects.get(email=email)
+            # Update the user's password
+            user.set_password(new_password)
             user.save()
-            messages.success(request, "Password has been updated successfully.")
-            return redirect('login')  # Redirect to login page after password is changed
-        except Exception as e:
-            messages.error(request, "There was an error resetting your password. Please try again.")
-            return render(request, 'clients/forgotpassword.html')
-    
+
+            # Log out the user and clear the session to ensure they will log in with the new password
+            logout(request)
+            request.session.clear()  # Clear the session explicitly to remove any cached login state
+
+            messages.success(request, "Password has been reset successfully. You can now log in with the new password.")
+            return redirect('login')
+        except CustomUser.DoesNotExist:
+            messages.error(request, "No user found with that email address.")
+            return redirect('reset_password')
+
     return render(request, 'clients/forgotpassword.html')
+
+
 def is_client(user):
     return hasattr(user, 'customer_profile') and user.customer_profile is not None
 @user_passes_test(is_client or is_service_provider, login_url='/login')
@@ -477,7 +489,7 @@ def businessplan(request, pk):
         # Update and save business plan status
         business.update_business_plan(business_plan)
         business.refresh_from_db()
-        return redirect("business",business.pk)  
+        return redirect("business_assets",business.pk)  
     
     return render(request, "clients/LenderCompilance/GettingApproved/Businessplan.html", {
         "business": business,
@@ -629,9 +641,10 @@ def Bank_rating(request, pk):
         'asset_compliance': business.asset_compliance() if business else False,
         'has_corp_only_facts':business.corp_compliance() if business else False,
     })
+
 @user_passes_test(is_client) 
 @login_required
-def Cd_loan(request, pk):
+def Comparable_credit(request, pk):
     # Get the business instance for the logged-in user by primary key (pk)
     business = get_object_or_404(Business, pk=pk, user=request.user)
 
@@ -639,18 +652,21 @@ def Cd_loan(request, pk):
     if request.method == "POST":
         print("Received POST data from agency page:", request.POST)
 
-        # Fetch values from form submission
-        last_balance = request.POST.get("last_balance")
-        
-        business.update_bankrating(last_balance)
-        # Optionally, you can call refresh_from_db() to reload the object from the database
-        business.refresh_from_db()
+        # Fetch the 'cd_loan_status' value from the form submission
+        secured_loan_status = request.POST.get("secured_loan_status")
 
+        # Update the business instance with the new cd_loan_status value
+        if secured_loan_status:
+            business.secured_loan_status = secured_loan_status
+        
+        # Save the updated business instance
+        business.save()
+        business.refresh_from_db()    
         # Redirect to the business page after successful submission
-        return redirect("clientindex", business.pk)  
+        return redirect("businessloan", business.pk)  
 
     # Render the page with the current business data
-    return render(request, "clients/LenderCompilance/GettingApproved/CDBusinessLoan.html", {
+    return render(request, "clients/LenderCompilance/GettingApproved/ComparableCredits.html", {
         "business": business,
         'price_choices': PRICE_LISTS,
         'entity_compliant': business.entity_compliant() if business else False,
@@ -667,7 +683,7 @@ def Cd_loan(request, pk):
     })
 @user_passes_test(is_client) 
 @login_required
-def Comparable_credit(request, pk):
+def Cd_loan(request, pk):
     # Get the business instance for the logged-in user by primary key (pk)
     business = get_object_or_404(Business, pk=pk, user=request.user)
 
@@ -675,18 +691,22 @@ def Comparable_credit(request, pk):
     if request.method == "POST":
         print("Received POST data from agency page:", request.POST)
 
-        # Fetch values from form submission
-        last_balance = request.POST.get("last_balance")
         
-        business.update_bankrating(last_balance)
-        # Optionally, you can call refresh_from_db() to reload the object from the database
-        business.refresh_from_db()
+        # Fetch the 'cd_loan_status' value from the form submission
+        cd_loan_status = request.POST.get("cd_loan_status")
 
+        # Update the business instance with the new cd_loan_status value
+        if cd_loan_status:
+            business.cd_loan_status = cd_loan_status
+        
+        # Save the updated business instance
+        business.save()
+        business.refresh_from_db() 
         # Redirect to the business page after successful submission
-        return redirect("businessloan", business.pk)  
+        return redirect("clientindex")  
 
     # Render the page with the current business data
-    return render(request, "clients/LenderCompilance/GettingApproved/ComparableCredits.html", {
+    return render(request, "clients/LenderCompilance/GettingApproved/CDBusinessLoan.html", {
         "business": business,
         'price_choices': PRICE_LISTS,
         'entity_compliant': business.entity_compliant() if business else False,

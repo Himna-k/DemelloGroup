@@ -1,10 +1,15 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth import login
+from django.contrib import messages
+from django.db import transaction
 from buisness.models import Business
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator
 from django.db.models import Q
-from serviceprovider.models import CustomUser
+from serviceprovider.models import CustomUser,ServiceProviderProfile
+from clients.models import AccountInfo,OtherInfo,CustomerProfile 
+from django.db import transaction
+from django.http import Http404
 def is_service_provider(user):
     return hasattr(user, 'service_provider_profile')
 @user_passes_test(is_service_provider)
@@ -12,7 +17,7 @@ def is_service_provider(user):
 @login_required
 def index(request):
     # Fetch users with related businesses and account info
-    users = CustomUser.objects.prefetch_related('businesses', 'account_info').all()
+    users = CustomUser.objects.filter(user_type='client').prefetch_related('businesses', 'account_info').all()
 
     # Add pagination
     paginator = Paginator(users, 10)  # Show 10 users per page
@@ -27,7 +32,7 @@ def index(request):
 @user_passes_test(is_service_provider)
 @login_required
 def membersearch(request):
-    users = CustomUser.objects.prefetch_related('businesses', 'account_info').all()  # Fetch all users with related data
+    users = CustomUser.objects.filter(user_type='client').prefetch_related('businesses', 'account_info').all() # Fetch all users with related data
 
     if request.method == 'GET':
         # Fetch input values from request.GET
@@ -86,7 +91,7 @@ def membersearch(request):
 @login_required
 def viewmembers(request):
     # Fetch users with related businesses and account info
-    users = CustomUser.objects.prefetch_related('businesses', 'account_info').all()
+    users = CustomUser.objects.filter(user_type='client').prefetch_related('businesses', 'account_info').all()
 
     # Add pagination
     paginator = Paginator(users, 10)  # Show 10 users per page
@@ -102,9 +107,7 @@ def viewmembers(request):
 def editmembers(request, user_id):
     # Fetch user and related business data
     user = get_object_or_404(
-        CustomUser.objects.prefetch_related(
-            'service_provider_profile', 'businesses', 'account_info', 'customer_profile'
-        ),
+        CustomUser.objects.filter(user_type='client').prefetch_related('businesses', 'account_info'),
         pk=user_id
     )
     business = user.businesses.first()  # Fetch the user's business (assuming one business per user)
@@ -139,12 +142,55 @@ def editmembers(request, user_id):
             business.save()
 
     return render(request, 'serviceprovider/edit.html', {'user': user, 'business': business})
+
+
+
+# Make sure the user is a service provider
+@user_passes_test(is_service_provider)
+@login_required
+def deletemember(request, user_id):
+    # Ensure that the user being deleted exists
+    user = get_object_or_404(CustomUser, pk=user_id)
+
+    if request.method == 'POST':  # Ensure deletion happens only on POST request
+        try:
+            # Start a transaction to ensure atomicity
+            with transaction.atomic():
+                # Deleting related models manually
+                if hasattr(user, 'service_provider_profile'):
+                    user.service_provider_profile.delete()
+
+                # Delete associated Business records
+                Business.objects.filter(user=user).delete()
+
+                # Delete associated AccountInfo records
+                AccountInfo.objects.filter(user=user).delete()
+
+                # Delete associated CustomerProfile records
+                CustomerProfile.objects.filter(user=user).delete()
+
+                # Delete associated OtherInfo records (through AccountInfo)
+                OtherInfo.objects.filter(account__user=user).delete()
+
+                # Finally, delete the User record itself
+                user.delete()
+
+            # Show a success message
+            messages.success(request, "User and related data have been successfully deleted.")
+            return redirect('index')  # Redirect to your success page after deletion
+        except Exception as e:
+            # If any error occurs, show an error message
+            messages.error(request, f"An error occurred while deleting the user: {str(e)}")
+            return redirect('index')  # Redirect to your error page if deletion fails
+
+    # If the request method is not POST, just redirect back (error handling)
+    return redirect('index')  # Update with your error page URL
 @user_passes_test(is_service_provider)
 @login_required
 def loginasuser(request, user_id):
     # Fetch the user to impersonate
     user = get_object_or_404(
-        CustomUser.objects.prefetch_related('service_provider_profile', 'businesses', 'account_info', 'customer_profile'),
+        CustomUser.objects.filter(user_type='client').prefetch_related('businesses', 'account_info'),
         pk=user_id
     )
     

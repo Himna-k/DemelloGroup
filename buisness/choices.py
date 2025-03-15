@@ -222,3 +222,13 @@ PRICE_LISTS = [
     (170000, '$170,000'),
     (180000, '$180,000')
 ]
+SECURED_LOAN_STATUS_CHOICES = [
+        ('', '--Select One--'),
+        ('at_least_5000', 'I have at least $5,000 for the program'),
+        ('need_help_raising_5000', 'I need help raising the $5,000 minimum'),
+    ]
+CD_LOAN_STATUS_CHOICES=[
+    ('', '--Select One--'),
+    ('Elected', 'I have elected to move with the program'),
+    ('On progress', 'I am passing on the secured bank loan at this time.'),
+]

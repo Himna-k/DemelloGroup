@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from . choices import PRICE_LISTS,STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS
+from . choices import PRICE_LISTS,STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS,SECURED_LOAN_STATUS_CHOICES,CD_LOAN_STATUS_CHOICES
 class Business(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="businesses")
     
@@ -87,8 +87,20 @@ class Business(models.Model):
     outstanding_invoices = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Amount of outstanding invoices with customers")
     existing_purchase_orders = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Current amount of existing purchase orders")
     equipment_owned_value = models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
-    
+    secured_loan_status = models.CharField(
+        max_length=50,
+        choices=SECURED_LOAN_STATUS_CHOICES,
+        default='',
+        blank=True,  # Allow blank if it's an optional field
+    )
+    cd_loan_status = models.CharField(
+        max_length=50,
+        choices=CD_LOAN_STATUS_CHOICES,
+        default='',
+        blank=True,  # Allow blank if it's an optional field
+    )
     last_balance=models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
+    
     # Compliance check method for Entity and Filings section
     def is_business_email_free(self):
         if self.business_email:
@@ -154,6 +166,10 @@ class Business(models.Model):
         self.experian and
         self.transunion and 
         self.equifax
+        )
+    def cd_loan_status(self):
+        return bool(
+            self.cdloan_status
         )
     def update_entity_info(self, entity_type, state, trademark_verified, good_standing):
         # Only update fields if they have a valid (non-None) value
@@ -284,5 +300,6 @@ class Business(models.Model):
     def update_bankrating(self,last_balance):
         if last_balance:
             self.last_balance=last_balance
+        self.save()
     def __str__(self):
         return f"{self.business_legal_name} (Owned by {self.user.username})"

@@ -1,73 +1,91 @@
 {% extends "clients/base.html" %}
-{% block title %}Entity and Filings{% endblock title %}
+{% load static %}
+{% block title %}Comparable Credits{% endblock title %}
 {% block content %}
 
-    <!-- Form Container -->
-    <div class="container px-6 mx-auto grid">
-        <!-- Center-Aligned H2 with Smaller Font -->
-        <h2 class="text-center text-base font-semibold text-gray-700 dark:text-gray-300 mb-6">
-            Please enter your current business entity status and the state where it was formed:
-        </h2>
+<div class="container mx-auto px-4 max-w-4xl">
+    <h1 class="text-3xl font-bold text-black mb-4 mt-4">Obtaining Your First Bank Business Loan</h1> 
+  <!-- Compliance Section -->
+  <div class="p-6 bg-white border border-gray-300 rounded shadow mb-8">
+   <!-- Image Section -->
+  <div class="mb-6">
+    <h2 class="text-xl font-semibold text-black mb-4">Your first reporting bank business loan puts you on the lending radar</h2>
+    <div class="relative overflow-hidden  shadow-md">
+      <img src="{% static 'img/comparablecredit.png' %}" alt="Business Entity" class="w-full object-cover h-10">
+    </div>
+  </div>
+  
+  <h2 class="text-xl font-semibold text-black mb-4">Just as soon as other credit providers see a reporting bank loan on your business credit reports it signals to them that your business is for real.</h2>
+  <p class="text-gray-800 text-base mb-4">Getting your first business loan from a bank can seem like an impossible task. The majority of the business loan applications at banks get declined because banks won't lend to just anybody ... or will they?</p>
+  <p class="text-gray-800 text-base mb-4">Having a bank loan can provide a powerful boost to building business credit fast. The business bank loan needs to be in the exact name of your company. It should be under your Federal EIN and report to the business credit agencies, specifically Equifax and Experian.</p>
+  <p class="text-gray-800 text-base mb-4">So how do we accomplish this? Under this Bank Loan Program you will be securing a business loan with a certificate of deposit (CD) at the bank that is extending the business loan. You'll make a deposit into a CD account at an SBA preferred lending bank. Then, you receive a business loan for 100% of the value of the CD.</p>
+  <p class="text-gray-800 text-base mb-4">This process works very well and works every time so long as your personal credit is at least "ok". The bank is not basing your business loan on your personal credit, but if your FICO scores are in the low 500 range they may not do this deal for you. If your scores are low it is best to try smaller business banks and talk to an individual banker first.</p>
+  <p class="text-gray-800 text-base mb-4">So where does your deposit come from? We are not talking about a very large amount of money. You can start with as little as $5,000. There are many creative ways to acquire the money you need for the bank CD deposit: family, friends, savings, garage sales, or any of the creative funding programs in the steps that follow.</p>
+  <h2 class="text-xl font-semibold text-black mb-4">Why A Secure Bank Loan?</h2>  
+  <div class="border border-blue-300 rounded mb-4 p-4">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        The Features of a Secured Bank Loan
+      </h2>
+      <ol>
+        <li>It will appear on your business credit report just like any other loan.</li>
+        <li>There will be no note in your file, or on your business credit reports, that show it as "secured".</li>
+        <li>It will make your business credit report stand out to other lenders and creditors who obviously know how difficult it is to get a business bank loan.</li>
+      </ol>
+    </div>
+    <h2 class="text-xl font-semibold text-black mb-4">Comparable Credit</h2>  
+  <div class="border border-blue-300 rounded mb-4 p-4">
+      <h2 class="text-sm font-semibold text-white bg-blue-600 p-2 rounded-t">
+        The Importance Of Comparable Credit Cannot Be Overstated
+      </h2>
+      <p class="text-gray-800 text-base mb-4">Comparable credit simply means that someone has already loaned you an amount of money that is close to or "comparable" to what you are now asking another lender to lend to you. This is where the importance of this program comes in.</p>
+      <p class="text-gray-800 text-base mb-4">Let's do a "what if". What if, you borrowed personally say $25,000 from a credit union on a three year installment loan basis? Then, you took that same $25,000 and used it to open a certificate of deposit with a business lending bank which in turn you used to secure a $25,000 reporting business line of credit.</p>
+      <p class="text-gray-800 text-base mb-4">Here is what would happen. Other lenders would see that you had a $25,000 line of credit with a bank that would make your business much more attractive to them and lending offers would start coming in. Now when you want to finance that next $35,000 purchase you already have a reporting "comparable credit" making it much easier to get approved.</p>
+      <p class="text-gray-800 text-base mb-4">There are also two huge upsides. First, most business lending banks will release the certificate of deposit you used as security for the business line of credit after 12 to 18 months of payments being made on time or early. Second, you can then use that released CD money to payoff the credit union loan that will normally give your personal credit scores a big boost.</p>
+    </div>
+    <h2 class="text-xl font-semibold text-black mb-4">A Helpful Suggestion</h2>  
+  
+      <p class="text-gray-800 text-base mb-4">If you have to borrow the money you need for this step from Friends or Family, you can assure them that they will get their money back. Here is how that works:</p>
+      <ol>
+        <li>You borrow the money for the CD to secure the bank loan.</li>
+        <li>The bank then makes you a loan dollar for dollar.</li>
+        <li>Deposit the money from the loan/line of credit into a separate account and use it exclusively to re-pay itself.</li>
+      </ol>
+      <p class="text-gray-800 text-base mb-4">After the final payment, you can return their money with interest. Remember their money is in a CD earning interest. This technique gives you a very large push towards building excellent business credit scores and establishing comparable credit.</p>
+      <h2 class="text-xl font-semibold text-black mb-4">Not Able or Not Interested Right Now?</h2>
+      <p class="text-gray-800 text-base mb-4">If you feel doing the Bank Loan Program is a premature step in the process for you, or if you simply cannot find a business bank to do the CD program for you, don't worry. You can still build your business credit without the CD-Secured bank loan, it just expedites the process. You can always return to do this program later.</p>
+<!-- Form Section -->
+<form method="POST" action="{% url 'comparablecredit' business.pk %}">
+  {% csrf_token %}
+  <div class="p-6 bg-white">
     
-        <!-- Business Entity Type -->
-        <div class="flex items-center mb-4">
-            <label for="entityType" class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Business entity/structure type:</label>
-            <select id="entityType" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring focus:ring-blue-200 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                <option value="LLC">LLC</option>
-                <option value="Corporation">Corporation</option>
-                <option value="Sole Proprietorship">Sole Proprietorship</option>
-                <option value="Partnership">Partnership</option>
-            </select>
-        </div>
-    
-        <!-- State Selection -->
-        <div class="flex items-center mb-4">
-            <label for="state" class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Select the State where your business was formed:</label>
-            <select id="state" class="w-2/3 p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring focus:ring-blue-200 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                <option value="New York">New York</option>
-                <option value="California">California</option>
-                <option value="Texas">Texas</option>
-                <option value="Florida">Florida</option>
-            </select>
-        </div>
-    
-        <!-- Trademark Infringement Verification -->
-        <div class="flex items-center mb-4">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Have you verified there are no trademark infringements?</span>
-            <div class="flex space-x-4 w-2/3">
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="trademark" value="Yes" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    Yes
-                </label>
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="trademark" value="No" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    No
-                </label>
-            </div>
-        </div>
-    
-        <!-- Good Standing Verification -->
-        <div class="flex items-center mb-6">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 w-1/3">Have you verified that your entity is in good standing?</span>
-            <div class="flex space-x-4 w-2/3">
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="goodStanding" value="Yes" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    Yes
-                </label>
-                <label class="flex items-center text-gray-700 dark:text-gray-300">
-                    <input type="radio" name="goodStanding" value="No" class="mr-2 text-blue-600 focus:ring-blue-500">
-                    No
-                </label>
-            </div>
-        </div>
-    
-        <!-- Center-Aligned Buttons -->
-        <div class="flex justify-center space-x-4">
-            <button class="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-300 dark:hover:bg-gray-500"><< Back</button>
-            <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-600">Dashboard</button>
-            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
-        </div>
-    </div>   
+    <div class="mb-4">
+        <label for="secured_loan_status" class="block text-sm font-medium text-gray-700">
+            What is your situation on setting up the secured bank CD loan?
+          </label>
+          <select id="secured_loan_status" name="secured_loan_status" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+            <option value="" {% if business.secured_loan_status == "" %}selected{% endif %}>--Select One--</option>
+            <option value="at_least_5000" {% if business.secured_loan_status == "at_least_5000" %}selected{% endif %}>I have at least $5,000 for the program</option>
+            <option value="need_help_raising_5000" {% if business.secured_loan_status == "need_help_raising_5000" %}selected{% endif %}>I need help raising the $5,000 minimum</option>
+        </select>
+        
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <div class="flex justify-center space-x-4">
+    <button onclick="window.history.back();" type="button" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"><< Back</button>
+    <a href="{% url 'clientindex'  %}" 
+      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+      Dashboard
+    </a>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save & Continue >></button>
+  </div>
+
+</form>
+
+   
+</div>
+  
 
 
 {% endblock content %}

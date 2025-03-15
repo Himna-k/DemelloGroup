@@ -62,13 +62,18 @@
               </a>
             </li>
             <!--Lender Compilance-->
-            <li x-data="{ openFilingsPages: false }">
-              <button @click="openFilingsPages = !openFilingsPages" class="inline-flex items-center justify-between w-full text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
-                  Lender Compliance
-                  <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'transform rotate-180': openFilingsPages }" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                  </svg>
-              </button>
+            <li x-data="{ 
+              openFilingsPages: localStorage.getItem('lenderComplianceOpen') === 'true' 
+            }" 
+            @click.away="openFilingsPages = false">
+            <button 
+              @click="openFilingsPages = !openFilingsPages; localStorage.setItem('lenderComplianceOpen', openFilingsPages)" 
+              class="inline-flex items-center justify-between w-full text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md px-4 py-2">
+                Lender Compliance
+                <svg class="w-4 h-4 transition-transform duration-200" :class="{ 'transform rotate-180': openFilingsPages }" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
               {% if business %}
               <ul x-show="openFilingsPages" x-transition class="pl-6">
                 <li class="flex items-center">
@@ -331,7 +336,7 @@
                           <li class="flex">
                               <a
                                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                  href="#"
+                                  href="{% url 'logout' %}"
                               >
                                   <svg
                                       class="w-4 h-4 mr-3"
