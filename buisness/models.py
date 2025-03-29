@@ -101,6 +101,7 @@ class Business(models.Model):
     )
     last_balance=models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
     
+    
     # Compliance check method for Entity and Filings section
     def is_business_email_free(self):
         if self.business_email:

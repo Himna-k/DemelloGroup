@@ -10,8 +10,8 @@ from .choices import (
     PERSONAL_INCOME_CHOICES, MONTH_CHOICES, YEAR_CHOICES, INDUSTRY_CHOICES, 
     AMOUNT_CHOICES
 )
-@user_passes_test(is_client)
-@login_required
+# @user_passes_test(is_client)
+# @login_required
 def register_business(request):
     if request.method == 'POST':
         user = request.user

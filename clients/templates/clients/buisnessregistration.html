@@ -10,11 +10,12 @@
             </div>
             {% if messages %}
             <div class="mb-4">
-                {% for message in messages %}
-                    <div class="text-red-500 text-sm">{{ message }}</div>
-                {% endfor %}
+            {% for message in messages %}
+                <div class="text-red-500 text-sm">{{ message }}</div>
+            {% endfor %}
             </div>
             {% endif %}
+
             <!-- Step 1: Business Info Form -->
             <form action="{% url 'business_registration' %}" method="POST" class="space-y-6">
                 {% csrf_token %}
