@@ -18,7 +18,7 @@
             {% endif %}
 
             <!-- Step 1: Business Info Form -->
-            <form action="{% url 'business_registration' %}" method="POST" class="space-y-6">
+            <form action="{% url 'business_registration' %}" method="POST" class="space-y-6" id="business-registration-form">
                 {% csrf_token %}
 
                 <!-- Tab 1 - Business Info -->
@@ -60,14 +60,16 @@
             });
         }
 
-        function nextTab() {
+        function nextTab(event) {
+            event.preventDefault();  // Prevent form submission
             if (currentTab < 3) {
                 currentTab++;
                 showTab(currentTab);
             }
         }
 
-        function previousTab() {
+        function previousTab(event) {
+            event.preventDefault();  // Prevent form submission
             if (currentTab > 1) {
                 currentTab--;
                 showTab(currentTab);

@@ -7,6 +7,7 @@ import buisness
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+     path("register_business", buisness.views.register_business, name="business_registration"),
      path("clientindex",views.clientindex,name='clientindex'),
      path("CompleteCompilance",views.CompleteCompilance,name='complete_compilance'),
      path('entity/<int:pk>/',views.entityandfilings,name='entity'),
@@ -17,7 +18,6 @@ urlpatterns = [
      path("banking/<int:pk>/",views.banking,name='banking'),
      path("agencies/<int:pk>/",views.agencies,name='agencies'),
      path("sos_contact/<int:pk>/", views.sos_contact_list, name="sos_contact_list"),
-     path("register_business", buisness.views.register_business, name="business_registration"),
      # path("signup", views.signup_view, name="signup"),
      path("login/", views.login_view, name="login"),
      path("reset_password/", views.reset_password, name="reset_password"),
