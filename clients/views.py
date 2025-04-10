@@ -126,43 +126,78 @@ def reset_password(request):
 
 def is_client(user):
     return hasattr(user, 'customer_profile') and user.customer_profile is not None
+
+# # Dashboard view (without login)
+# def clientindex(request):
+#     # Get business details if available
+#     business = Business.objects.first()  # Retrieve the first business (or customize this logic as needed)
+    
+#     # Show registration form if no business is available
+#     show_registration = business is None
+    
+#     return render(request, 'clients/index.html', {
+#         'business': business,
+#         'show_registration': show_registration,
+#          'state_choices':STATE_CHOICES,
+#          'year_choices':YEAR_CHOICES,
+#          'month_choices':MONTH_CHOICES,
+#          'industry_choices':INDUSTRY_CHOICES,
+#          'entity_choices':ENTITY_CHOICES,
+#          'amount_choices':AMOUNT_CHOICES,
+#          'credit_choices':CREDIT_CHOICES,
+#          'income_choices':PERSONAL_INCOME_CHOICES,
+        
+#          'entity_compliant': business.entity_compliant() if business else False,
+#          'location_compliant': business.location_compliant() if business else False,
+#          'phones_compliant': business.phone_compliant if business else False,
+#          'site_compliant': business.website_compilant() if business else False,
+#          'ein_compliant': business.ein_compliant() if business else False,
+#          'banking_compliant': business.banking_compilant() if business else False,
+#          'agencies_compliant': business.agencies_compilance() if business else False,
+#          'is_email_free': business.is_business_email_free() if business else True,
+#          'has_business_plan': business.has_business_plan() if business else False,
+#          'asset_compliance': business.asset_compliance() if business else False,
+#          'has_corp_only_facts':business.corp_compliance() if business else False,
+#     })
+def is_client(user):
+    return hasattr(user, 'customer_profile') and user.customer_profile is not None
 @user_passes_test(is_client or is_service_provider, login_url='/login')
 @login_required
 def clientindex(request):
-    user = request.user
-    account_info = AccountInfo.objects.get(user=user)
+     user = request.user
+     account_info = AccountInfo.objects.get(user=user)
     
-    # Get the business associated with the user, if it exists
-    business = Business.objects.filter(user=user).first()
+     # Get the business associated with the user, if it exists
+     business = Business.objects.filter(user=user).first()
     
     
-    show_registration = business is None
+     show_registration = business is None
     
-    return render(request, 'clients/index.html', {
-        'show_registration': show_registration,
-        'state_choices':STATE_CHOICES,
-        'year_choices':YEAR_CHOICES,
-        'month_choices':MONTH_CHOICES,
-        'industry_choices':INDUSTRY_CHOICES,
-        'entity_choices':ENTITY_CHOICES,
-        'amount_choices':AMOUNT_CHOICES,
-        'credit_choices':CREDIT_CHOICES,
-        'income_choices':PERSONAL_INCOME_CHOICES,
+     return render(request, 'clients/index.html', {
+         'show_registration': show_registration,
+         'state_choices':STATE_CHOICES,
+         'year_choices':YEAR_CHOICES,
+         'month_choices':MONTH_CHOICES,
+         'industry_choices':INDUSTRY_CHOICES,
+         'entity_choices':ENTITY_CHOICES,
+         'amount_choices':AMOUNT_CHOICES,
+         'credit_choices':CREDIT_CHOICES,
+         'income_choices':PERSONAL_INCOME_CHOICES,
         
-        'entity_compliant': business.entity_compliant() if business else False,
-        'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
-        'site_compliant': business.website_compilant() if business else False,
-        'ein_compliant': business.ein_compliant() if business else False,
-        'banking_compliant': business.banking_compilant() if business else False,
-        'agencies_compliant': business.agencies_compilance() if business else False,
-        'is_email_free': business.is_business_email_free() if business else True,
-        'has_business_plan': business.has_business_plan() if business else False,
-        'asset_compliance': business.asset_compliance() if business else False,
-        'has_corp_only_facts':business.corp_compliance() if business else False,
-        'business': business,
+         'entity_compliant': business.entity_compliant() if business else False,
+         'location_compliant': business.location_compliant() if business else False,
+         'phones_compliant': business.phone_compliant() if business else False,
+         'site_compliant': business.website_compilant() if business else False,
+         'ein_compliant': business.ein_compliant() if business else False,
+         'banking_compliant': business.banking_compilant() if business else False,
+         'agencies_compliant': business.agencies_compilance() if business else False,
+         'is_email_free': business.is_business_email_free() if business else True,
+         'has_business_plan': business.has_business_plan() if business else False,
+         'asset_compliance': business.asset_compliance() if business else False,
+         'has_corp_only_facts':business.corp_compliance() if business else False,
+         'business': business,
         
-    })
+     })
 @user_passes_test(is_client)
 @login_required
 def CompleteCompilance(request):
@@ -188,7 +223,7 @@ def CompleteCompilance(request):
         
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -223,7 +258,7 @@ def entityandfilings(request, pk):
         
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -263,7 +298,7 @@ def buisnesslocation(request, pk):
         'business': business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -301,7 +336,7 @@ def phones(request,pk):
         'business': business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -339,7 +374,7 @@ def websites(request,pk):
         
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -369,7 +404,7 @@ def ein(request,pk):
         
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -398,7 +433,7 @@ def banking(request,pk):
         'business': business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -424,7 +459,7 @@ def sos_contact_list(request,pk):
         
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -465,7 +500,7 @@ def agencies(request,pk):
         'business': business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant':business.website_compilant() if business else False,
         'ein_compliant':business.ein_compliant() if business else False,
         'banking_compliant':business.banking_compilant() if business else False,
@@ -496,7 +531,7 @@ def businessplan(request, pk):
         
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -552,7 +587,7 @@ def business_assets(request, pk):
         "price_choices": PRICE_LISTS,  # Assuming you have a constant PRICE_LISTS or equivalent
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -594,7 +629,7 @@ def corponlyfacts(request, pk):
         "business": business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -631,7 +666,7 @@ def Bank_rating(request, pk):
         'price_choices': PRICE_LISTS,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -671,7 +706,7 @@ def Comparable_credit(request, pk):
         'price_choices': PRICE_LISTS,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,
@@ -711,7 +746,7 @@ def Cd_loan(request, pk):
         'price_choices': PRICE_LISTS,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,

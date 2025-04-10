@@ -205,7 +205,7 @@ def loginasuser(request, user_id):
         'business': business,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
-        'phones_compliant': business.phone_compilant() if business else False,
+        'phones_compliant': business.phone_compliant() if business else False,
         'site_compliant': business.website_compilant() if business else False,
         'ein_compliant': business.ein_compliant() if business else False,
         'banking_compliant': business.banking_compilant() if business else False,

@@ -4,7 +4,8 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
-    user_type = models.CharField(max_length=50, choices=(("client", "Client"), ("service_provider", "Service Provider")))
+    user_type = models.CharField(max_length=50, 
+                                 choices=(("client", "Client"), ("service_provider", "Service Provider")),default="client" )
 class ServiceProviderProfile(models.Model):
     # Temporarily remove the reference to CustomerProfile
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="service_provider_profile")

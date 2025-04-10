@@ -1,9 +1,9 @@
 {% extends "clients/base.html" %}
 {% block title %}Client Dashboard{% endblock title %}
 {% block content %}
-{% if show_registration %}
+{% comment %} {% if show_registration %}
     {% include "clients/buisnessregistration.html" %}
-{% else %}
+{% else %} {% endcomment %}
 <!-- Main Dashboard Container -->
 <div class="container mx-auto p-8">
 
@@ -73,6 +73,6 @@
         </div>
     </div>
 </div>
-{% endif %}
+{% comment %} {% endif %} {% endcomment %}
 {% endblock content %}
 
