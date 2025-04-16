@@ -3,12 +3,35 @@ from django.conf import settings
 from serviceprovider.models import CustomUser
 from .choices import PRICE_LISTS, STATE_CHOICES, ENTITY_CHOICES, TITLE_CHOICES, MONTH_CHOICES, YEAR_CHOICES, AMOUNT_CHOICES, INDUSTRY_CHOICES, CREDIT_CHOICES, SECURED_LOAN_STATUS_CHOICES, CD_LOAN_STATUS_CHOICES,FREE_EMAIL_DOMAINS
 
+from serviceprovider.models import CustomUser
+from .choices import PRICE_LISTS, STATE_CHOICES, ENTITY_CHOICES, TITLE_CHOICES, MONTH_CHOICES, YEAR_CHOICES, AMOUNT_CHOICES, INDUSTRY_CHOICES, CREDIT_CHOICES, SECURED_LOAN_STATUS_CHOICES, CD_LOAN_STATUS_CHOICES,FREE_EMAIL_DOMAINS
+
 # In business/models.py
 class Client(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="client_profile")
     first_name = models.CharField(max_length=50, default='Temporary')  # Removed default 'Unknown' - registration should provide this
     last_name = models.CharField(max_length=50, default='Temporary')   # Removed default 'Unknown'
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="client_profile")
+    first_name = models.CharField(max_length=50, default='Temporary')  # Removed default 'Unknown' - registration should provide this
+    last_name = models.CharField(max_length=50, default='Temporary')   # Removed default 'Unknown'
     email = models.EmailField(unique=True)
+    phone = models.CharField(max_length=15, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)# from django.db import models
+
+# from django.conf import settings
+# from . choices import PRICE_LISTS,STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS,SECURED_LOAN_STATUS_CHOICES,CD_LOAN_STATUS_CHOICES
+# from serviceprovider.models import CustomUser 
+# # In business/models.py
+# class Client(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="business_client_profile")  # updated related_name
+#     first_name = models.CharField(max_length=50, default='Unknown') 
+#     last_name = models.CharField(max_length=50, default='Unknown') 
+#     email = models.EmailField(unique=True)
+#     created_at = models.DateTimeField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.email
+
     phone = models.CharField(max_length=15, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)# from django.db import models
 
@@ -126,7 +149,10 @@ class Client(models.Model):
 #     )
 #     last_balance=models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
 
+
 class Business(models.Model):
+    client = models.ForeignKey('Client', on_delete=models.CASCADE, related_name="businesses")
+    service_provider = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, related_name="managed_businesses")
     client = models.ForeignKey('Client', on_delete=models.CASCADE, related_name="businesses")
     service_provider = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, related_name="managed_businesses")
     
@@ -137,7 +163,17 @@ class Business(models.Model):
     address = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
+    state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
     zip_code = models.CharField(max_length=5, blank=True, null=True)
+    # Contact Information
+    # first_name = models.CharField(max_length=50, blank=True, null=True)
+    # last_name = models.CharField(max_length=50, blank=True, null=True)
+    # phone = models.CharField(max_length=10, blank=True, null=True)
+    # address = models.CharField(max_length=255, blank=True, null=True)
+    # city = models.CharField(max_length=100, blank=True, null=True)
+    # state = models.CharField(max_length=2, choices=STATE_CHOICES, default='', null=True)
+    # zip_code = models.CharField(max_length=5, blank=True, null=True)
+    # email = models.EmailField(blank=True, null=True)
     # Contact Information
     # first_name = models.CharField(max_length=50, blank=True, null=True)
     # last_name = models.CharField(max_length=50, blank=True, null=True)
@@ -242,6 +278,8 @@ class Business(models.Model):
             self.business_legal_name and
             self.client.first_name and
             self.client.last_name and
+            self.client.first_name and
+            self.client.last_name and
             self.primary_contact_title and
             self.client.phone and
             self.address and
@@ -259,6 +297,7 @@ class Business(models.Model):
         return bool(
           self.domain_name and
           self.business_email and
+          self.client.email  
           self.client.email  
         )
         
@@ -430,5 +469,7 @@ class Business(models.Model):
             self.last_balance=last_balance
         self.save()
     def __str__(self):
+        return self.business_legal_name
+    
         return self.business_legal_name
     

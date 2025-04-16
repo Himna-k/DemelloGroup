@@ -22,6 +22,7 @@ urlpatterns = [
      path("login/", views.login_view, name="login"),
      path("reset_password/", views.reset_password, name="reset_password"),
      path("error/",views.error,name='error'),
+     path("error/",views.error,name='error'),
      # path("logout", auth_views.LogoutView.as_view(), name="logout"),
      path('logout/', views.logout_view, name='logout'), 
      path('businessplan/<int:pk>/',views.businessplan,name='businessplan'),

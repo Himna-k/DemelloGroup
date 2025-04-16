@@ -2,6 +2,7 @@
 import json,os
 import logging
 from serviceprovider.utils import is_client,is_service_provider
+from serviceprovider.utils import is_client,is_service_provider
 
 from django.conf import settings
 from django.shortcuts import render, redirect,get_object_or_404
@@ -378,6 +379,7 @@ def entityandfilings(request, pk):
         "buisness_types": ENTITY_CHOICES,
     })
 
+
 @user_passes_test(is_client)
 @login_required
 def buisnesslocation(request, pk):
@@ -464,6 +466,7 @@ def websites(request, pk):
     if request.method == "POST":
         # Get data from the form
         domain_name = request.POST.get("domain")
+        business_mail = request.POST.get("buisness_mail")
         business_mail = request.POST.get("buisness_mail")
         personal_mail = request.POST.get("personal_mail")
         
