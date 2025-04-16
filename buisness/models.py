@@ -1,15 +1,31 @@
 from django.db import models
-
 from django.conf import settings
-from . choices import PRICE_LISTS,STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS,SECURED_LOAN_STATUS_CHOICES,CD_LOAN_STATUS_CHOICES
-from serviceprovider.models import CustomUser 
+from serviceprovider.models import CustomUser
+from .choices import PRICE_LISTS, STATE_CHOICES, ENTITY_CHOICES, TITLE_CHOICES, MONTH_CHOICES, YEAR_CHOICES, AMOUNT_CHOICES, INDUSTRY_CHOICES, CREDIT_CHOICES, SECURED_LOAN_STATUS_CHOICES, CD_LOAN_STATUS_CHOICES,FREE_EMAIL_DOMAINS
+
 # In business/models.py
 class Client(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="client_profile")
+    first_name = models.CharField(max_length=50, default='Temporary')  # Removed default 'Unknown' - registration should provide this
+    last_name = models.CharField(max_length=50, default='Temporary')   # Removed default 'Unknown'
     email = models.EmailField(unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    phone = models.CharField(max_length=15, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)# from django.db import models
 
-    def __str__(self):
-        return self.email
+# from django.conf import settings
+# from . choices import PRICE_LISTS,STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS,SECURED_LOAN_STATUS_CHOICES,CD_LOAN_STATUS_CHOICES
+# from serviceprovider.models import CustomUser 
+# # In business/models.py
+# class Client(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="business_client_profile")  # updated related_name
+#     first_name = models.CharField(max_length=50, default='Unknown') 
+#     last_name = models.CharField(max_length=50, default='Unknown') 
+#     email = models.EmailField(unique=True)
+#     created_at = models.DateTimeField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.email
+
 # class Business(models.Model):
 #     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="businesses")
     
@@ -109,25 +125,28 @@ class Client(models.Model):
 #         blank=True,  # Allow blank if it's an optional field
 #     )
 #     last_balance=models.PositiveIntegerField(choices=PRICE_LISTS, default=0, verbose_name="Total value of equipment owned outright")
-class Business(models.Model):
-    client = models.ForeignKey('Client', null=True, blank=True, on_delete=models.CASCADE, related_name="businesses")
-    user = models.ForeignKey(CustomUser, null=True, blank=True, on_delete=models.CASCADE, related_name="businesses")
 
+class Business(models.Model):
+    client = models.ForeignKey('Client', on_delete=models.CASCADE, related_name="businesses")
+    service_provider = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, related_name="managed_businesses")
     
     # General Business Information
     business_legal_name = models.CharField(max_length=255, default='unknown', null=False, blank=False)
     ein = models.BooleanField(default=False, verbose_name="Does your Business have an EIN?")
     domain_name = models.CharField(max_length=255, blank=True, null=True)
-
-    # Contact Information
-    first_name = models.CharField(max_length=50, blank=True, null=True)
-    last_name = models.CharField(max_length=50, blank=True, null=True)
-    phone = models.CharField(max_length=10, blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
-    state = models.CharField(max_length=2, choices=STATE_CHOICES, default='', null=True)
+    state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
     zip_code = models.CharField(max_length=5, blank=True, null=True)
-    email = models.EmailField(blank=True, null=True)
+    # Contact Information
+    # first_name = models.CharField(max_length=50, blank=True, null=True)
+    # last_name = models.CharField(max_length=50, blank=True, null=True)
+    # phone = models.CharField(max_length=10, blank=True, null=True)
+    # address = models.CharField(max_length=255, blank=True, null=True)
+    # city = models.CharField(max_length=100, blank=True, null=True)
+    # state = models.CharField(max_length=2, choices=STATE_CHOICES, default='', null=True)
+    # zip_code = models.CharField(max_length=5, blank=True, null=True)
+    # email = models.EmailField(blank=True, null=True)
     business_email = models.EmailField(blank=True, default='NONE', null=True)
     primary_contact_title = models.CharField(max_length=15, choices=TITLE_CHOICES, null=True)
     business_phone = models.CharField(max_length=10, blank=True, default='NONE', null=True)
@@ -209,8 +228,6 @@ class Business(models.Model):
         blank=True,
     )
     last_balance = models.PositiveIntegerField(choices=PRICE_LISTS, default=0)
-    
-    # Compliance check method for Entity and Filings section
     def is_business_email_free(self):
         if self.business_email:
             domain = self.business_email.split('@')[-1]
@@ -221,8 +238,8 @@ class Business(models.Model):
     def location_compliant(self):
         return bool(
             self.business_legal_name and
-            self.first_name and
-            self.last_name and
+            self.client.first_name and
+            self.client.last_name and
             self.primary_contact_title and
             self.phone and
             self.address and
@@ -240,7 +257,7 @@ class Business(models.Model):
         return bool(
           self.domain_name and
           self.business_email and
-          self.email  
+          self.client.email  
         )
         
     def ein_compliant(self):
@@ -411,4 +428,5 @@ class Business(models.Model):
             self.last_balance=last_balance
         self.save()
     def __str__(self):
-        return f"{self.business_legal_name} (Owned by {self.user.username})"
+        return self.business_legal_name
+    

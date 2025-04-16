@@ -102,10 +102,10 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 AUTH_USER_MODEL = 'serviceprovider.CustomUser'
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-SESSION_COOKIE_AGE = 60 * 60 * 24  # 1 day (in seconds)
-
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Keep session even if the browser is closed
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_COOKIE_AGE = 86400  # 1 day
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+SESSION_SAVE_EVERY_REQUEST = True  # 🔧 Try this
 
 
 AUTH_PASSWORD_VALIDATORS = [
