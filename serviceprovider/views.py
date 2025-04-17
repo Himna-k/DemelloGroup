@@ -89,10 +89,11 @@ def membersearch(request):
 def viewmembers(request):
     # Fetch users with related businesses and account info
     users = CustomUser.objects.filter(user_type='client').prefetch_related(
-        'client_profile__businesses', 
-        'account_info',
-        'customer_profile__other_info'
+        'client_profile__businesses',  # Prefetch businesses related to client_profile
+        'account_info',  # Prefetch account_info
+        'customer_profile__other_info'  # Prefetch other_info related to customer_profile
     ).all()
+    
     # Add pagination
     paginator = Paginator(users, 10)  # Show 10 users per page
     page_number = request.GET.get('page')
@@ -103,12 +104,17 @@ def viewmembers(request):
 @user_passes_test(is_service_provider)
 @login_required
 def editmembers(request, user_id):
-    # Fetch user and related business data
+    # Fetch user with related client profile and businesses in a single query
     user = get_object_or_404(
-        CustomUser.objects.filter(user_type='client').prefetch_related('client_profile__businesses', 'account_info'),
+        CustomUser.objects.filter(user_type='client')
+        .select_related('client_profile')  # Fetch client_profile in a single query
+        .prefetch_related('client_profile__businesses'),  # Fetch businesses for the client in one query
         pk=user_id
     )
-    business = user.client_profile.businesses.first()  # Fetch the user's business (assuming one business per user)
+
+    # Extract client profile and business (if available)
+    client_profile = user.client_profile
+    business = client_profile.businesses.first() if client_profile else None
 
     if request.method == 'POST':
         # Fetch input values from request.POST
@@ -126,8 +132,10 @@ def editmembers(request, user_id):
         user.username = user_name
         if password:  # Only update if a password is provided
             user.set_password(password)
-        user.first_name = first_name
-        user.last_name = last_name
+        if client_profile:
+            client_profile.first_name = first_name
+            client_profile.last_name = last_name
+            client_profile.save()
         user.save()
 
         # Update business fields
@@ -139,7 +147,8 @@ def editmembers(request, user_id):
             business.domain_name = domain
             business.save()
 
-    return render(request, 'serviceprovider/edit.html', {'user': user, 'business': business})
+    return render(request, 'serviceprovider/edit.html', {'user': user, 'business': business, 'client_profile': client_profile})
+
 @user_passes_test(is_service_provider)
 @login_required
 def deletemember(request, user_id):

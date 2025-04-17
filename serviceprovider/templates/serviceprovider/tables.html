@@ -26,11 +26,16 @@
           </thead>
           <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
             {% for user in page_obj %}
-            {% with user.client_profile.businesses.first as business %}
             <tr class="text-gray-700 dark:text-gray-400">
               <td class="px-4 py-3 text-sm">{{ user.id }}</td>
-              <td class="px-4 py-3 text-sm">{{ business.business_legal_name|default:"N/A" }}</td>
-              <td class="px-4 py-3 text-sm">{{ business.first_name|default:"N/A" }}</td>
+              <td class="px-4 py-3 text-sm">
+                {% if user.client_profile.businesses.all %}
+                    {{ user.client_profile.businesses.first.business_legal_name|default:"N/A" }}
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+              <td class="px-4 py-3 text-sm">{{ user.client_profile.first_name|default:"N/A" }}</td>
               <td class="px-4 py-3 text-sm">{{ business.last_name|default:"N/A" }}</td>
               <td class="px-4 py-3 text-sm">{{ business.phone|default:"N/A" }}</td>
               <td class="px-4 py-3 text-sm">{{ user.email }}</td>

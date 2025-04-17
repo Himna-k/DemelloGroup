@@ -15,36 +15,36 @@
 </div>
     <div class="grid grid-cols-3 gap-4">
         <div>
-            <label class="block text-gray-700">Experian:</label>
+            <label class="block text-gray-700">Experian:
             <select name="experian" class="w-full border-gray-300 rounded px-3 py-2">
                 <option value="NONE">Select Score</option>
                 {% for score, score in credit_choices %}
                     <option value="{{ score }}">{{ score }}</option>
                 {% endfor %}
-            </select>
+            </select></label>
         </div>
         <div>
-            <label class="block text-gray-700">TransUnion:</label>
+            <label class="block text-gray-700">TransUnion:
             <select name="transunion" class="w-full border-gray-300 rounded px-3 py-2">
                 <option value="NONE">Select Score</option>
                 {% for score, score in credit_choices %}
                     <option value="{{ score }}">{{ score }}</option>
                 {% endfor %}
-            </select>
+            </select></label>
         </div>
         <div>
-            <label class="block text-gray-700">Equifax:</label>
+            <label class="block text-gray-700">Equifax:
             <select name="equifax" class="w-full border-gray-300 rounded px-3 py-2">
                 <option value="NONE">Select Score</option>
                 {% for score, score in credit_choices %}
                     <option value="{{ score }}">{{ score }}</option>
                 {% endfor %}
-            </select>
+            </select></label>
         </div>
     </div>
     <div class="space-y-4 mt-4">
     <div>
-        <label class="block text-gray-700">Do you have a bankruptcy showing on any credit report?</label>
+        <label class="block text-gray-700">Do you have a bankruptcy showing on any credit report?
         <div class="flex items-center space-x-4 mt-2">
             <label class="flex items-center">
                 <input type="radio" name="bankruptcy" value="yes" class="mr-2" required>
@@ -54,11 +54,11 @@
                 <input type="radio" name="bankruptcy" value="no" class="mr-2" required>
                 No
             </label>
-        </div>
+        </div></label>
     </div>
 
     <div>
-        <label class="block text-gray-700">Are there judgments, liens, or charge-offs on any credit report?</label>
+        <label class="block text-gray-700">Are there judgments, liens, or charge-offs on any credit report?
         <div class="flex items-center space-x-4 mt-2">
             <label class="flex items-center">
                 <input type="radio" name="judgments" value="yes" class="mr-2" required>
@@ -68,17 +68,18 @@
                 <input type="radio" name="judgments" value="no" class="mr-2" required>
                 No
             </label>
+        </label>
         </div>
     </div>
 
     <div>
-        <label class="block text-gray-700">Personal annual income of this business owner</label>
+        <label class="block text-gray-700">Personal annual income of this business owner
         <select name="personal_income" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" required>
             <option value="NONE">Select Income</option>
             {% for income_range, income_range in income_choices %}
                 <option value="{{ income_range}}">{{ income_range }}</option>
             {% endfor %}
-        </select>
+        </select></label>
     </div>
 </div>
 <div class="mt-6">
