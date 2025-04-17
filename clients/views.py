@@ -376,7 +376,7 @@ def entityandfilings(request, pk):
         'asset_compliance': business.asset_compliance() if business else False,
         'has_corp_only_facts': business.corp_compliance() if business else False,
         "state_choices": STATE_CHOICES,
-        "business_types": ENTITY_CHOICES,
+        "buisness_types": ENTITY_CHOICES,
     })
 
 @user_passes_test(is_client)
@@ -384,7 +384,7 @@ def entityandfilings(request, pk):
 def buisnesslocation(request, pk):
     # Get the business instance for the logged-in user by primary key (pk)
     business = get_object_or_404(Business, pk=pk, client__user=request.user)
-    
+    client_profile = business.client 
     # Process form data when POST request is made
     if request.method == "POST":
         business_name = request.POST.get("businessName")
@@ -404,6 +404,7 @@ def buisnesslocation(request, pk):
 
     return render(request, 'clients/LenderCompilance/CompleteCompilance/BuisnessLocation.html', {
         'business': business,
+        'client_profile':client_profile,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compliant() if business else False,
@@ -423,7 +424,7 @@ def buisnesslocation(request, pk):
 def phones(request, pk):
     # Get the business instance for the logged-in user by primary key (pk)
     business = get_object_or_404(Business, pk=pk, client__user=request.user)
-
+    client = business.client 
     # Process form data when POST request is made
     if request.method == "POST":
         listed_in_411 = request.POST.get("listed_in_411") == 'true'
@@ -438,6 +439,7 @@ def phones(request, pk):
 
     return render(request, 'clients/LenderCompilance/CompleteCompilance/Phones&411.html', {
         'business': business,
+        'client':client,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compliant() if business else False,
@@ -459,7 +461,7 @@ def phones(request, pk):
 def websites(request, pk):
     # Get the business instance for the logged-in user by primary key (pk)
     business = get_object_or_404(Business, pk=pk, client__user=request.user)
-    
+    client_profile = business.client 
     if request.method == "POST":
         # Get data from the form
         domain_name = request.POST.get("domain")
@@ -472,6 +474,7 @@ def websites(request, pk):
 
     return render(request, 'clients/LenderCompilance/CompleteCompilance/website&mail.html', {
         'business': business,
+        'client':client_profile,
         'entity_compliant': business.entity_compliant() if business else False,
         'location_compliant': business.location_compliant() if business else False,
         'phones_compliant': business.phone_compliant() if business else False,

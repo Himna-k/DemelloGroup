@@ -241,7 +241,7 @@ class Business(models.Model):
             self.client.first_name and
             self.client.last_name and
             self.primary_contact_title and
-            self.phone and
+            self.client.phone and
             self.address and
             self.city and
             self.zip_code
