@@ -180,7 +180,7 @@ LOGGING = {
         'file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': 'django_error.log',
+            'filename': 'clientmanagement/dgjango_error.log',
         },
     },
     'loggers': {
