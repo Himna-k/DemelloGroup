@@ -3,6 +3,107 @@
 <div class="grid grid-cols-1 gap-4">
     <div class="grid grid-cols-2 gap-4">
         <div>
+            <label class="block text-gray-700">Month/Year Business Was Started:
+            <div class="flex space-x-4">
+                <select name="month" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                    <option value="NONE">Select Month</option>
+                    {% for code,month in month_choices %}
+                        <option value="{{ code }}">{{ month}}</option>
+                    {% endfor %}
+                </select>
+                <select name="year" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                    <option value="NONE">Select Year</option>
+                    {% for year,year in year_choices %}
+                        <option value="{{ year }}">{{ year}}</option>
+                    {% endfor %}
+                </select></label>
+            </div>
+        </div>
+        <div>
+            <label class="block text-gray-700">Business Major Industry Focus:
+            <select name="industry_focus" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="NONE">Select Industry</option>
+                {% for industry ,industry in industry_choices %}
+                    <option value="{{ industry }}">{{ industry }}</option>
+                {% endfor %}
+            </select></label>
+        </div>
+
+        <div>
+            <label class="block text-gray-700">Business Type:
+            <select name="business_type" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="NONE">Select Type</option>
+                {% for code ,entity in entity_choices %}
+                    <option value="{{ code }}">{{ entity}}</option>
+                {% endfor %}
+            </select></label>
+        </div>
+        <div>
+            <label class="block text-gray-700">Company website domain name:
+            <input type="text" name="domain_name" placeholder="Enter without http:// or www" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+        </label>
+        </div>
+
+        <div>
+            <label class="block text-gray-700">Average gross monthly revenue:
+            <select name="gross_revenue" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="NONE">Select Amount</option>
+                {% for amount ,amount in amount_choices %}
+                    <option value="{{ amount }}">{{ amount }}</option>
+                {% endfor %}
+            </select></label>
+        </div>
+        <div>
+            <label class="block text-gray-700">Total monthly credit card sales:
+            <select name="credit_sales" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="NONE">Select Amount</option>
+                {% for amount ,amount in amount_choices %}
+                    <option value="{{ amount }}">{{ amount }}</option>
+                {% endfor %}
+            </select></label>
+        </div>
+
+        <div>
+            <label class="block text-gray-700">Amount owed to you by other businesses:
+            <select name="owed_amount" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="NONE">Select Amount</option>
+                {% for amount ,amount in amount_choices %}
+                    <option value="{{ amount }}">{{ amount }}</option>
+                {% endfor %}
+            </select></label>
+        </div>
+
+        <div>
+            <label class="block text-gray-700">Current amount of purchase orders:
+            <select name="purchase_orders" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="NONE">Select Amount</option>
+                {% for amount ,amount in amount_choices %}
+                    <option value="{{ amount }}">{{ amount }}</option>
+                {% endfor %}
+            </select></label>
+        </div>
+        <div>
+            <label class="block text-gray-700">Total value of equipment owned outright:
+            <select name="equipment_value" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+                <option value="NONE">Select Amount</option>
+                {% for amount ,amount in amount_choices %}
+                    <option value="{{ amount }}">{{ amount }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        </div>
+    </div>
+</div>
+<div class="flex justify-between mt-6">
+    <button type="button" onclick="previousTab()" class="bg-green-500 text-white px-4 py-2 rounded">Back</button>
+    <button type="button" onclick="nextTab()" class="bg-green-500 text-white px-4 py-2 rounded">Next</button>
+</div>
+{% endblock content %}
+{% comment %} {% load static tailwind_tags %}
+{% block content %}
+<div class="grid grid-cols-1 gap-4">
+    <div class="grid grid-cols-2 gap-4">
+        <div>
             <label class="block text-gray-700">Month/Year Business Was Started:</label>
             <div class="flex space-x-4">
                 <select name="month" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
@@ -89,4 +190,4 @@
     <button type="button" onclick="nextTab()" class="bg-green-500 text-white px-4 py-2 rounded">Next</button>
 </div> {% endcomment %}
 {% endblock content %}
-
+ {% endcomment %}

@@ -1,19 +1,23 @@
-# serviceprovider/models.py
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
-    user_type = models.CharField(max_length=50, choices=(("client", "Client"), ("service_provider", "Service Provider")))
+    user_type = models.CharField(
+        max_length=50,
+        choices=(("client", "Client"), ("service_provider", "Service Provider")),
+        default="client"
+    )
+
+    def __str__(self):
+        return self.username
 class ServiceProviderProfile(models.Model):
-    # Temporarily remove the reference to CustomerProfile
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="service_provider_profile")
     company_name = models.CharField(max_length=255, blank=True, null=True)
     business_phone = models.CharField(max_length=15, blank=True, null=True)
 
     def __str__(self):
         return f"Service Provider Profile of {self.user}"
-
 
 # class ServiceProviderCustomerRelation(models.Model):
 #     service_provider = models.ForeignKey(ServiceProviderProfile, on_delete=models.CASCADE, related_name='customers')
