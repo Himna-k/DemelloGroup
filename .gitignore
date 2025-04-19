@@ -1,3 +1,10 @@
 /db.sqlite3
 .env
 /env
+/clients/__pycache__
+/buisness/__pycache__
+/buisness/migrations
+/clientmanagement/__pycache__
+/clients/migrations
+/serviceprovider/__pycache__
+/serviceprovider/migrations
