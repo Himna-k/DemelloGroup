@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'serviceprovider',
     'buisness',
     "whitenoise.runserver_nostatic",
+    
 ]
 
 MIDDLEWARE = [

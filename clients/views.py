@@ -22,38 +22,38 @@ from buisness.choices import (
     AMOUNT_CHOICES,PRICE_LISTS
 )
 
-def signup_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('name')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        password2 = request.POST.get('password2')
-        user_type = request.POST.get('user_type')
+# def signup_view(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('name')
+#         email = request.POST.get('email')
+#         password = request.POST.get('password')
+#         password2 = request.POST.get('password2')
+#         user_type = request.POST.get('user_type')
 
-        if password != password2:
-            messages.error(request, "Passwords do not match.")
-            return redirect('signup')
+#         if password != password2:
+#             messages.error(request, "Passwords do not match.")
+#             return redirect('signup')
 
-        if CustomUser.objects.filter(username=username).exists():
-            messages.error(request, "Username already taken.")
-            return redirect('signup')
+#         if CustomUser.objects.filter(username=username).exists():
+#             messages.error(request, "Username already taken.")
+#             return redirect('signup')
 
-        if CustomUser.objects.filter(email=email).exists():
-            messages.error(request, "Email already registered.")
-            return redirect('signup')
+#         if CustomUser.objects.filter(email=email).exists():
+#             messages.error(request, "Email already registered.")
+#             return redirect('signup')
 
-        user = CustomUser.objects.create_user(username=username, email=email, password=password, user_type=user_type)
-        user.save()
+#         user = CustomUser.objects.create_user(username=username, email=email, password=password, user_type=user_type)
+#         user.save()
 
-        if user_type == 'client':
-            account_info = AccountInfo.objects.create(user=user, signup_date=timezone.now(), last_login=timezone.now())
-            other_info = OtherInfo.objects.create(account=account_info)
-            CustomerProfile.objects.create(user=user, account_info=account_info, other_info=other_info)
-        elif user_type == 'service_provider':
-            ServiceProviderProfile.objects.create(user=user)
+#         if user_type == 'client':
+#             account_info = AccountInfo.objects.create(user=user, signup_date=timezone.now(), last_login=timezone.now())
+#             other_info = OtherInfo.objects.create(account=account_info)
+#             CustomerProfile.objects.create(user=user, account_info=account_info, other_info=other_info)
+#         elif user_type == 'service_provider':
+#             ServiceProviderProfile.objects.create(user=user)
 
-        messages.success(request, "Account created successfully. Please log in.")
-        return redirect('login')
+#         messages.success(request, "Account created successfully. Please log in.")
+#         return redirect('login')
 
     return render(request, 'clients/signup.html')
 logger = logging.getLogger(__name__)
