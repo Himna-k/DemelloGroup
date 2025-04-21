@@ -56,7 +56,7 @@ def signup_view(request):
          messages.success(request, "Account created successfully. Please log in.")
          return redirect('login')
      return render(request, 'clients/signup.html')
-logger = logging.getLogger(__name__)
+
 def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -65,7 +65,6 @@ def login_view(request):
         try:
             # Fetch user by email
             user = CustomUser.objects.get(email=email)
-            logger.info(f"User found with email: {user.email}")
         except CustomUser.DoesNotExist:
             messages.error(request, "Invalid email or password.")
             return redirect('login')
@@ -76,7 +75,6 @@ def login_view(request):
         if user is not None:
             if user.is_active:  # Check if the user is active
                 login(request, user)  # Log the user in
-                logger.info(f"User {user.username} logged in successfully.")
                 if user.user_type == 'client':
                     return redirect('clientindex', user_id=user.id)  # Redirect to client dashboard
                 elif user.user_type == 'service_provider':
@@ -90,12 +88,7 @@ def login_view(request):
         else:
             messages.error(request, "Invalid email or password.")
             return redirect('login')
-        
-    # Logging after login attempt
-    logger.info(f"User after login: {request.user}")
-    print(f"Is user authenticated: {request.user.is_authenticated}")
-    print(f"User type: {getattr(request.user, 'user_type', 'N/A')}")
-    
+
     return render(request, 'clients/login.html')
 
 def logout_view(request):
