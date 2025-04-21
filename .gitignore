@@ -12,3 +12,5 @@
 
 # Log files
 *.log
+/clients/migrations
+/serviceprovider/__pycache__
