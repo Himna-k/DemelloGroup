@@ -298,7 +298,7 @@ class Business(models.Model):
           self.domain_name and
           self.business_email and
           self.client.email  
-          self.client.email  
+          
         )
         
     def ein_compliant(self):

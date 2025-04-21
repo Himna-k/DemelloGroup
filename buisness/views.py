@@ -78,7 +78,7 @@ def register_business(request):
                 phone=request.POST.get('contact_phone'),
                 
             )
-
+        finally:
             # Collect the business data from the form
             business_data = {
                 'client': client,  # Link to the created client
