@@ -107,7 +107,12 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_COOKIE_AGE = 86400  # 1 day
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_SAVE_EVERY_REQUEST = True  # 🔧 Try this
+# In settings.py
+SESSION_COOKIE_DOMAIN = None  # Or use your domain, e.g., '.yourdomain.com'
+SESSION_COOKIE_SECURE = True  # Required if using HTTPS
 
+# settings.py
+CSRF_TRUSTED_ORIGINS = ['http://13.60.43.36']
 
 AUTH_PASSWORD_VALIDATORS = [
     {
