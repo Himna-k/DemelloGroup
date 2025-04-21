@@ -1,12 +1,14 @@
+# Database, environment, and log files
 /db.sqlite3
 .env
 /env
-/clients/__pycache__
-/buisness/__pycache__
-/buisness/migrations
-/clientmanagement/__pycache__
-/clients/migrations
-/serviceprovider/__pycache__
-/serviceprovider/migrations
-# /clientmanagement/dgjango_error.log
-dgjango_error.log
+
+# Ignoring all __pycache__ directories and pyc files
+**/__pycache__/
+*.pyc
+
+# Migrations
+**/migrations/
+
+# Log files
+*.log
