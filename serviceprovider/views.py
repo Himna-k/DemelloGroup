@@ -1,5 +1,4 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from django.contrib.auth import get_backends
 from django.contrib.auth import login
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -10,10 +9,10 @@ from .utils import is_client, is_service_provider
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator
 from django.db.models import Q
-from serviceprovider.models import CustomUser,ServiceProviderProfile
+
+from serviceprovider.models import CustomUser
 # from clients.models import AccountInfo,OtherInfo,CustomerProfile 
 from django.db import transaction
-from django.http import Http404
 
 @user_passes_test(is_service_provider)
 @login_required
@@ -84,32 +83,15 @@ def membersearch(request):
 
     # Render the template
     return render(request, 'serviceprovider/searchmembers.html', {'page_obj': page_obj})
-import logging
-
-logger = logging.getLogger(__name__)
 
 @user_passes_test(is_service_provider)
 @login_required
 def viewmembers(request):
-    logger.debug("Fetching users...")
-
     # Fetch users with related businesses and account info
     users = CustomUser.objects.filter(user_type='client') \
         .select_related('client_profile') \
         .prefetch_related('client_profile__businesses') \
         .order_by('id')  # Ensure the queryset is ordered by 'id'
-
-    logger.debug(f"Fetched {users.count()} users")
-
-    # Log the fetched users to check if the data is correct
-    for user in users:
-        client_profile = user.client_profile
-        businesses = client_profile.businesses.all() if client_profile else None
-        # Extract business names from the QuerySet
-        business_names = [business.business_legal_name for business in businesses] if businesses else ["No businesses"]
-        
-        logger.debug(f"User ID: {user.id}, Name: {client_profile.first_name if client_profile else 'No profile'} "
-                     f"{client_profile.last_name if client_profile else 'No profile'}, Businesses: {', '.join(business_names)}")
 
     # Add pagination
     paginator = Paginator(users, 10)  # Show 10 users per page
@@ -165,7 +147,6 @@ def editmembers(request, user_id):
             business.save()
 
     return render(request, 'serviceprovider/edit.html', {'user': user, 'business': business, 'client_profile': client_profile})
-
 @user_passes_test(is_service_provider)
 @login_required
 def deletemember(request, user_id):
@@ -176,12 +157,13 @@ def deletemember(request, user_id):
         try:
             # Start a transaction to ensure atomicity
             with transaction.atomic():
-                # Deleting related models manually
+                # Delete related service provider profile if it exists
                 if hasattr(user, 'service_provider_profile'):
                     user.service_provider_profile.delete()
 
-                # Delete associated Business records
-                Business.objects.filter(client=user.client_profile).delete()
+                # Delete the businesses related to this specific user
+                if hasattr(user, 'client_profile'):
+                    Business.objects.filter(client=user.client_profile).delete()
 
                 # Finally, delete the User record itself
                 user.delete()
@@ -196,7 +178,6 @@ def deletemember(request, user_id):
 
     # If the request method is not POST, just redirect back (error handling)
     return redirect('index')  # Update with your error page URL
-from serviceprovider.models import CustomUser  # Make sure to import your custom user model
 
 @user_passes_test(lambda u: is_client(u) or is_service_provider(u), login_url='/login')
 def loginasuser(request, user_id):

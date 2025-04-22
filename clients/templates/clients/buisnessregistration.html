@@ -6,102 +6,17 @@
         <div class="bg-white p-8 rounded-lg shadow-lg max-w-6xl mx-auto">
             <!-- Goals Header -->
             <div class="flex justify-center space-x-4 mb-6">
-                <button class="py-2 px-8 bg-green-200 rounded" id="tab1-btn" type="button" onclick="showTab(1)">Business Info</button>
-                <button class="py-2 px-8 bg-green-200 rounded" id="tab2-btn" type="button" onclick="showTab(2)">Business Status</button>
-                <button class="py-2 px-8 bg-green-200 rounded" id="tab3-btn" type="button" onclick="showTab(3)">Business Credit</button>
-            </div>
-
-            {% if messages %}
-            <div class="mb-4">
-            {% for message in messages %}
-                <div class="text-red-500 text-sm">{{ message }}</div>
-            {% endfor %}
-            </div>
-            {% endif %}
-
-            <!-- Step 1: Business Info Form -->
-            <form action="{% url 'business_registration' %}" method="POST" class="space-y-6" id="business-registration-form">
-                {% csrf_token %}
-
-                <!-- Tab 1 - Business Info -->
-                <div id="tab1" class="tab-content">
-                    {% include "clients/register_info.html" %}
-                </div>
-
-                <!-- Tab 2 - Business Status -->
-                <div id="tab2" class="tab-content hidden">
-                    <div class="grid grid-cols-1 gap-4">
-                        {% include "clients/register_status.html" %}
-                    </div>
-                </div>
-
-                <!-- Tab 3 - Business Credit -->
-                <div id="tab3" class="tab-content hidden">
-                    {% include "clients/register_credit.html" %}
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        let currentTab = 1;
-
-        function showTab(tabNumber) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.add('hidden');
-            });
-
-            // Show the specified tab
-            document.getElementById(`tab${tabNumber}`).classList.remove('hidden');
-
-            // Update button colors
-            document.querySelectorAll('.flex.space-x-4.mb-6 button').forEach((button, index) => {
-                button.classList.toggle('bg-green-200', index === tabNumber - 1);
-                button.classList.toggle('bg-gray-100', index !== tabNumber - 1);
-            });
-        }
-
-        function nextTab(event) {
-            event.preventDefault();  // Prevent form submission
-            if (currentTab < 3) {
-                currentTab++;
-                showTab(currentTab);
-            }
-        }
-
-        function previousTab(event) {
-            event.preventDefault();  // Prevent form submission
-            if (currentTab > 1) {
-                currentTab--;
-                showTab(currentTab);
-            }
-        }
-
-        // Initialize by showing the first tab
-        showTab(currentTab);
-    </script>
-{% endblock content %}
-
-
-{% comment %} {% load static tailwind_tags %}
-{% block content %}
-    <div class="container mx-auto py-12">
-        <div class="bg-white p-8 rounded-lg shadow-lg max-w-6xl mx-auto">
-            <!-- Goals Header -->
-            <div class="flex justify-center space-x-4 mb-6">
                 <button class="py-2 px-8 bg-green-200 rounded" id="tab1-btn">Business Info</button>
                 <button class="py-2 px-8 bg-green-200 rounded" id="tab2-btn">Business Status</button>
                 <button class="py-2 px-8 bg-green-200 rounded"id="tab3-btn">Business Credit</button>
             </div>
             {% if messages %}
             <div class="mb-4">
-            {% for message in messages %}
-                <div class="text-red-500 text-sm">{{ message }}</div>
-            {% endfor %}
+                {% for message in messages %}
+                    <div class="text-red-500 text-sm">{{ message }}</div>
+                {% endfor %}
             </div>
             {% endif %}
-
             <!-- Step 1: Business Info Form -->
             <form action="{% url 'business_registration' %}" method="POST" class="space-y-6">
                 {% csrf_token %}
@@ -163,5 +78,4 @@
         // Initialize by showing the first tab
         showTab(currentTab);
     </script>
-{% endblock content %} {% endcomment %}
-
+{% endblock content %}
