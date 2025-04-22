@@ -32,8 +32,8 @@ class Client(models.Model):
 #     def __str__(self):
 #         return self.email
 
-    phone = models.CharField(max_length=15, blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)# from django.db import models
+    # phone = models.CharField(max_length=15, blank=True, null=True)
+    # created_at = models.DateTimeField(auto_now_add=True)# from django.db import models
 
 # from django.conf import settings
 # from . choices import PRICE_LISTS,STATE_CHOICES,ENTITY_CHOICES,TITLE_CHOICES,MONTH_CHOICES,YEAR_CHOICES,AMOUNT_CHOICES,INDUSTRY_CHOICES,CREDIT_CHOICES,FREE_EMAIL_DOMAINS,SECURED_LOAN_STATUS_CHOICES,CD_LOAN_STATUS_CHOICES
@@ -470,6 +470,5 @@ class Business(models.Model):
         self.save()
     def __str__(self):
         return self.business_legal_name
-    
-        return self.business_legal_name
+
     

@@ -1,9 +1,8 @@
-{% extends "serviceprovider/base.html" %}
-{% block title %}Members Table{% endblock %}
+{% comment %} {% block title %}Members Table{% endblock %}
 {% block content %}
 <div class="container px-6 mx-auto grid">
   <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Customers</h2>
-  
+   {% endcomment %}
   <!-- New Table -->
   <section class="w-full overflow-hidden rounded-lg shadow-xs pt-8 pb-8">
     <div class="w-full overflow-x-auto">
@@ -18,7 +17,7 @@
               <th class="px-4 py-3">Last Name</th>
               <th class="px-4 py-3">Phone</th>
               <th class="px-4 py-3">Email</th>
-              <th class="px-4 py-3">Last Login</th>
+              {% comment %} <th class="px-4 py-3">Last Login</th> {% endcomment %}
               <th class="px-4 py-3">Prequalified</th>
               <th class="px-4 py-3">Applied</th>
               <th class="px-4 py-3">Actions</th>
@@ -29,19 +28,19 @@
             <tr class="text-gray-700 dark:text-gray-400">
               <td class="px-4 py-3 text-sm">{{ user.id }}</td>
               <td class="px-4 py-3 text-sm">
-                {% if user.client_profile.businesses.all %}
+                {% if user.client_profile and user.client_profile.businesses.first %}
                     {{ user.client_profile.businesses.first.business_legal_name|default:"N/A" }}
                 {% else %}
                     N/A
                 {% endif %}
             </td>
               <td class="px-4 py-3 text-sm">{{ user.client_profile.first_name|default:"N/A" }}</td>
-              <td class="px-4 py-3 text-sm">{{ business.last_name|default:"N/A" }}</td>
-              <td class="px-4 py-3 text-sm">{{ business.phone|default:"N/A" }}</td>
+              <td class="px-4 py-3 text-sm">{{ user.client_profile.last_name|default:"N/A" }}</td>
+              <td class="px-4 py-3 text-sm">{{ user.client_profile.phone|default:"N/A" }}</td>
               <td class="px-4 py-3 text-sm">{{ user.email }}</td>
-              <td class="px-4 py-3 text-sm">
+              {% comment %} <td class="px-4 py-3 text-sm">
                 {{ user.account_info.last_login|date:"Y-m-d H:i:s"|default:"N/A" }}
-              </td>
+              </td> {% endcomment %}
               <td class="px-4 py-3 text-xs">
                 {% if user.customer_profile.other_info.paid_user %}
                 <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
@@ -111,7 +110,7 @@
                 </div>
               </td>
             </tr>
-            {% endwith %}
+            
             {% endfor %}
           </tbody>
       </table>
@@ -132,8 +131,8 @@
   
   </div>
 </section>
-</div>
-{% endblock %}
+{% comment %} </div>
+{% endblock %} {% endcomment %}
 
 {% comment %} {% extends "serviceprovider/base.html" %}
 {% block title %}Members Table{% endblock %}

@@ -84,16 +84,33 @@ def membersearch(request):
 
     # Render the template
     return render(request, 'serviceprovider/searchmembers.html', {'page_obj': page_obj})
+import logging
+
+logger = logging.getLogger(__name__)
+
 @user_passes_test(is_service_provider)
 @login_required
 def viewmembers(request):
+    logger.debug("Fetching users...")
+
     # Fetch users with related businesses and account info
-    users = CustomUser.objects.filter(user_type='client').prefetch_related(
-        'client_profile__businesses',  # Prefetch businesses related to client_profile
-        'account_info',  # Prefetch account_info
-        'customer_profile__other_info'  # Prefetch other_info related to customer_profile
-    ).all()
-    
+    users = CustomUser.objects.filter(user_type='client') \
+        .select_related('client_profile') \
+        .prefetch_related('client_profile__businesses') \
+        .order_by('id')  # Ensure the queryset is ordered by 'id'
+
+    logger.debug(f"Fetched {users.count()} users")
+
+    # Log the fetched users to check if the data is correct
+    for user in users:
+        client_profile = user.client_profile
+        businesses = client_profile.businesses.all() if client_profile else None
+        # Extract business names from the QuerySet
+        business_names = [business.business_legal_name for business in businesses] if businesses else ["No businesses"]
+        
+        logger.debug(f"User ID: {user.id}, Name: {client_profile.first_name if client_profile else 'No profile'} "
+                     f"{client_profile.last_name if client_profile else 'No profile'}, Businesses: {', '.join(business_names)}")
+
     # Add pagination
     paginator = Paginator(users, 10)  # Show 10 users per page
     page_number = request.GET.get('page')
