@@ -111,8 +111,8 @@ SESSION_SAVE_EVERY_REQUEST = True  # 🔧 Try this
 SESSION_COOKIE_DOMAIN = None  # Or use your domain, e.g., '.yourdomain.com'
 SESSION_COOKIE_SECURE = True  # Required if using HTTPS
 
-# settings.py
-CSRF_TRUSTED_ORIGINS = ['http://13.60.43.36']
+# # settings.py
+# CSRF_TRUSTED_ORIGINS = ['http://13.60.43.36']
 
 AUTH_PASSWORD_VALIDATORS = [
     {
